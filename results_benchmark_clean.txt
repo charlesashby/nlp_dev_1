@@ -1,0 +1,20 @@
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u5.en
+total tokens: 34263 - total unk: 1782 - total true: 128 - total acc: 0.0718294051627
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u10.en
+total tokens: 33234 - total unk: 2686 - total true: 203 - total acc: 0.0755770662695
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u20.en
+total tokens: 33766 - total unk: 4457 - total true: 385 - total acc: 0.0863809737492
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u30.en
+total tokens: 35288 - total unk: 6132 - total true: 478 - total acc: 0.0779517286367
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u40.en
+total tokens: 36726 - total unk: 7600 - total true: 604 - total acc: 0.0794736842105
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u5c.en
+total tokens: 33966 - total unk: 1901 - total true: 159 - total acc: 0.083640189374
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u10c.en
+total tokens: 33435 - total unk: 2918 - total true: 222 - total acc: 0.0760795065113
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u20c.en
+total tokens: 34676 - total unk: 5272 - total true: 433 - total acc: 0.0821320182094
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u30c.en
+total tokens: 36920 - total unk: 7726 - total true: 639 - total acc: 0.0827077400984
+Results for test set: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u40c.en
+total tokens: 39419 - total unk: 10344 - total true: 861 - total acc: 0.0832366589327
