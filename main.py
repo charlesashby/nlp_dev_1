@@ -99,7 +99,7 @@ with open('results_benchmark_clean.txt', 'a') as f:
 
 # Build an n-gram dictionary
 with open(train_file_name, 'r') as f:
-    lines = f.readlines()
+    lines = f.readlines()[:10000]
     trigrams = [ngram for line in lines for ngram in ngrams(line.split(' '), 3, pad_left=True, pad_right=True, left_pad_symbol='<s>', right_pad_symbol='<s>')]
 
 # with open('trigrams.pickle', 'wb') as f:
