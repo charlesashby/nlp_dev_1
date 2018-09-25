@@ -12,7 +12,6 @@
 import os, pickle
 from nltk.util import ngrams
 import collections
-from kneser_ney.kneser_ney import *
 
 data_path = '/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1'
 train_file_name = os.path.join(data_path, 'en/train-europarl-v7.fi-en.en')
