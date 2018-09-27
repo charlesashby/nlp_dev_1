@@ -184,15 +184,31 @@ def knp_to_dict(file='KN_prob_list'):
     return dd
 
 
+def compute_probs(bigrams):
+    unigrams = {}
+    for bigram in bigrams:
+        if bigram[0] in unigrams:
+            unigrams[bigram[0]].append((bigram, bigrams[bigram]))
+        else:
+            unigrams[bigram[0]] = [(bigram, bigrams[bigram])]
+    unigram_clean = {}
+    for unigram in unigrams:
+        sort = sorted(unigrams[unigram], key= lambda x: x[1])
+        unigram_clean[unigram] = sort[-1]
+
+    return unigram_clean
+
+
 def get_highest_prob_bigram(prefix, bigram_dict):
     probs = [(k[0], k[1], v) for k, v in bigram_dict.items() if prefix == k[0]]
     if len(probs) == 0:
         # return highest probability of unigram ('the')
+        return 0, 'the', 0
     sorted_probs = sorted(probs, key=lambda tup: tup[2])
     return sorted_probs[-1]
 
 
-def complete_sentence(sentence, bigram_dict):
+def complete_sentence(sentence, bigrams_dict):
     """
     test_sentence = 'It is important for me to take advantage of the 10th anniversary of this key event in European integration to pay homage , in my turn , to those men who created the <unk w="euro"/> , such as Pierre Werner , Helmut Kohl , François Mitterrand , Jacques <unk w="Delors"/> , Valéry Giscard d 'Estaing and others .'
     :param sentence:
@@ -212,13 +228,18 @@ def complete_sentence(sentence, bigram_dict):
     completed_sentence = ['<s>']
     n_unk = 0.0
     n_true = 0.0
+    highest_prob_bigrams = bigrams_dict
     for i, token in enumerate(tokens_clean):
         if i == len(tokens_clean) - 1:
             break
         if '<unk w="' in tokens_clean[i + 1]:
             # print('Processing unk: {}'.format(tokens_clean[i + 1]))
             n_unk += 1
-            highest_prob_bigram = get_highest_prob_bigram(tokens_clean[i], bigram_dict)
+            # highest_prob_bigram = get_highest_prob_bigram(tokens_clean[i], bigram_dict)
+            try:
+                highest_prob_bigram = highest_prob_bigrams[tokens_clean[i]][0]
+            except KeyError:
+                highest_prob_bigram = (0, 'the')
             if '<unk w="{}"/>'.format(highest_prob_bigram[1]) == tokens_clean[i + 1]:
                 n_true += 1
             completed_sentence.append('<unk w="{}"/>'.format(highest_prob_bigram[1]))
@@ -227,9 +248,11 @@ def complete_sentence(sentence, bigram_dict):
     return completed_sentence, n_unk, n_true
 
 
-def evaluate_test_set(test_file, bigram_dict):
+def evaluate_test_set(test_file):
     """
     test_file = '/home/ashbylepoc/tmp/nlp_dev_1/unk-europarl-v7.fi-en-u10.en'
+    test_file = '/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u5c.en'
+
     :param test_file:
     :param bigram_dict:
     :return:
@@ -237,6 +260,7 @@ def evaluate_test_set(test_file, bigram_dict):
     lines = open(test_file, 'r').readlines()
     total_true = 0.0
     total_unk = 0.0
+    bigram_dict = compute_probs(knp_to_dict())
     for i, line in enumerate(lines):
         completed_sentence, n_unk, n_true = complete_sentence(line, bigram_dict)
         print('Processing sentence {}/1000 - Accuracy: {}'.format(i, float(n_true) / float(n_unk)))
