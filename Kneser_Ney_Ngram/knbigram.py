@@ -1,11 +1,16 @@
-# HW2: Plot rank vs. frequency on a log-log scale, 
-# and fit parameters for the generalized power law. 
-#
-# Coded by Md Iftekhar Tanveer (itanveer@cs.rochester.edu)
-#
+import os, re
 import numpy as np
 import matplotlib.pyplot as plt
-
+import matplotlib
+# data_path = '/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1'
+data_path = '/home/ashbylepoc/tmp/nlp_dev_1/'
+train_file_name = os.path.join(data_path, 'train-europarl-v7.fi-en.en')
+test_sets = [os.path.join(data_path,
+                          'unk-europarl-v7.fi-en-u{}c.en'.format(i))
+             for i in [5, 10, 20, 30, 40]]
+test_sets_non_contiguous = [os.path.join(data_path,
+                          'unk-europarl-v7.fi-en-u{}.en'.format(i))
+             for i in [5, 10, 20, 30, 40]] + test_sets
 # Read the data and create count dictionaries
 def getcountdic(dataFile):
     print 'please wait while it finishes reading the data ... '
@@ -195,6 +200,7 @@ def compute_probs(bigrams):
     for unigram in unigrams:
         sort = sorted(unigrams[unigram], key= lambda x: x[1])
         unigram_clean[unigram] = sort[-1]
+        # unigram_clean[unigram] = sort
 
     return unigram_clean
 
@@ -208,13 +214,8 @@ def get_highest_prob_bigram(prefix, bigram_dict):
     return sorted_probs[-1]
 
 
-def complete_sentence(sentence, bigrams_dict):
-    """
-    test_sentence = 'It is important for me to take advantage of the 10th anniversary of this key event in European integration to pay homage , in my turn , to those men who created the <unk w="euro"/> , such as Pierre Werner , Helmut Kohl , François Mitterrand , Jacques <unk w="Delors"/> , Valéry Giscard d 'Estaing and others .'
-    :param sentence:
-    :param bigram_dict:
-    :return:
-    """
+def complete_sentence(sentence, bigrams_dict, prefix_dist_dict):
+
     tokens = '<s> {}'.format(sentence).split(' ')
     tokens_clean = []
     for i, _ in enumerate(tokens):
@@ -236,19 +237,42 @@ def complete_sentence(sentence, bigrams_dict):
             # print('Processing unk: {}'.format(tokens_clean[i + 1]))
             n_unk += 1
             # highest_prob_bigram = get_highest_prob_bigram(tokens_clean[i], bigram_dict)
+
             try:
-                highest_prob_bigram = highest_prob_bigrams[tokens_clean[i]][0]
+                if '<unk w="' in tokens_clean[i]:
+                    prefix = re.search('<unk w="(.*)"/>', tokens_clean[i]).group(1)
+                    highest_prob_bigram = highest_prob_bigrams[prefix][0]
+                else:
+                    prefix = tokens_clean[i]
+                    highest_prob_bigram = highest_prob_bigrams[prefix][0]
             except KeyError:
                 highest_prob_bigram = (0, 'the')
+                prefix = tokens_clean[i]
+
             if '<unk w="{}"/>'.format(highest_prob_bigram[1]) == tokens_clean[i + 1]:
                 n_true += 1
+                good_suffix = True
+            else:
+                good_suffix = False
+
+            if prefix in prefix_dist_dict:
+                prefix_dist_dict[prefix]['unk'] += 1.0
+                if good_suffix:
+                    prefix_dist_dict[prefix]['true'] += 1.0
+            else:
+                if good_suffix:
+                    prefix_dist_dict[prefix] = {'unk': 1.0, 'true': 1.0}
+                else:
+                    prefix_dist_dict[prefix] = {'unk': 1.0, 'true': 0.0}
+
             completed_sentence.append('<unk w="{}"/>'.format(highest_prob_bigram[1]))
+
         else:
             completed_sentence.append(tokens_clean[i + 1])
-    return completed_sentence, n_unk, n_true
+    return completed_sentence, n_unk, n_true, prefix_dist_dict
 
 
-def evaluate_test_set(test_file):
+def evaluate_test_set(test_file, prefix_dist_dict):
     """
     test_file = '/home/ashbylepoc/tmp/nlp_dev_1/unk-europarl-v7.fi-en-u10.en'
     test_file = '/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/en/unk-europarl-v7.fi-en-u5c.en'
@@ -262,11 +286,158 @@ def evaluate_test_set(test_file):
     total_unk = 0.0
     bigram_dict = compute_probs(knp_to_dict())
     for i, line in enumerate(lines):
-        completed_sentence, n_unk, n_true = complete_sentence(line, bigram_dict)
+        completed_sentence, n_unk, n_true, prefix_dist_dict = complete_sentence(line, bigram_dict, prefix_dist_dict)
         print('Processing sentence {}/1000 - Accuracy: {}'.format(i, float(n_true) / float(n_unk)))
         total_true += n_true
         total_unk += n_unk
-    return total_true, total_unk
+    return total_true, total_unk, prefix_dist_dict
+
+
+def visualizing_failures(prefix_dist_dict):
+    """
+    To visualize failures, we neeed to do:
+    1. Compute accuracy of the algo for each prefix
+    2. Find the prefix that do well and those who do bad
+    3. Compute the probability distribution of each prefix
+    4. Compute metadata for each prefix in their respective
+        sentence e.g. "Hello" might do well in short sentence
+        but not in long sentences or with a sentence with
+        many unks but not with a low level of unks
+    5.1 For the prefix that did not work well <0.2 acc:
+            compare their probability distribution on a graph
+            where x: prefix, y: probability distribution in
+            color
+    :return:
+    """
+    bigrams = knp_to_dict()
+    unigrams = {}
+    for bigram in bigrams:
+        if bigram[0] in unigrams:
+            unigrams[bigram[0]].append((bigram, bigrams[bigram]))
+        else:
+            unigrams[bigram[0]] = [(bigram, bigrams[bigram])]
+    unigram_clean = {}
+    for unigram in unigrams:
+        sort = sorted(unigrams[unigram], key= lambda x: x[1])
+        # unigram_clean[unigram] = sort[-1]
+        unigram_clean[unigram] = sort
+
+    prefix_dist_dict = {}
+    with open('results/KN_results.txt', 'a') as f:
+        for test_set in test_sets:
+            total_true, total_unk, prefix_dist_dict = evaluate_test_set(test_set, prefix_dist_dict)
+            accuracy = float(total_true) / float(total_unk)
+            f.write('processed file: {} -- accuracy: {}\n'.format(test_set, accuracy))
+            print('processed file: {} -- accuracy: {}'.format(test_set, accuracy))
+
+    accuracies = {}
+    for prefix in prefix_dist_dict:
+        prefix_unk, prefix_true = prefix_dist_dict[prefix]['unk'],\
+                                  prefix_dist_dict[prefix]['true']
+        accuracies[prefix] = {'acc': prefix_true / prefix_unk,
+                              'n_unk': prefix_unk}
+    i = 0
+    top_prefix = []
+    for accuracy in accuracies:
+        if accuracies[accuracy]['acc'] >= 0.80 and accuracies[accuracy]['n_unk'] > 10:
+            i += 1
+            top_prefix.append((accuracy, [np.exp(t[1]) for t in reversed(unigram_clean[accuracy][-10:])]))
+            print('prefix: {} -- n_unk: {} -- n_suffixes: {}'
+                  ' -- difference 1st and 2nd suffix prob: {}'.format(accuracy, accuracies[accuracy]['n_unk'],
+                                                                     len(unigram_clean[accuracy]),
+                                                                  np.exp(unigram_clean[accuracy][-1][1]) - np.exp(unigram_clean[accuracy][-2][1])))
+    print(i)
+    worst_prefix = []
+    i = 0
+    for accuracy in accuracies:
+        if accuracies[accuracy]['acc'] <= 0.20 and accuracies[accuracy]['n_unk'] > 10:
+            i += 1
+            worst_prefix.append((accuracy, [np.exp(t[1]) for t in reversed(unigram_clean[accuracy][-10:])]))
+
+            print('prefix: {} -- n_unk: {} -- n_suffixes: {}'
+                  ' -- difference 1st and 2nd suffix prob: {}'.format(accuracy, accuracies[accuracy]['n_unk'],
+                                                                     len(unigram_clean[accuracy]),
+                                                                  np.exp(unigram_clean[accuracy][-1][1]) - np.exp(unigram_clean[accuracy][-2][1])))
+    print(i)
+
+    # Build graph using the top 10 choices for the suffix using the best and worst performing prefix
+    top_10_suffixes = [i + 1 for i in range(10)]
+    top_10_prefix = [t[0] for t in top_prefix[:10]]
+    worst_10_prefix = [t[0] for t in worst_prefix[:10]]
+    probs_top = np.zeros(shape=(len(top_prefix), 10))
+    for j, t in enumerate(top_prefix):
+        pp = np.zeros(shape=10)
+        # pp = []
+        for i, p in enumerate(t[1]):
+            pp[i] = p
+        probs_top[j, :] = pp
+        # probs_top.append(pp)
+
+
+
+    fig, ax = plt.subplots()
+    pp_tops = probs_top.transpose(1, 0)
+    im = ax.imshow(pp_tops[:, :10])
+    ax.set_xticks(np.arange(len(top_10_prefix)))
+    ax.set_yticks(np.arange(len(top_10_suffixes)))
+    ax.set_xticklabels(top_10_prefix)
+    ax.set_yticklabels(top_10_suffixes)
+    # ax.set_xticklabels(top_10_suffixes)
+    # ax.set_yticklabels(top_10_prefix)
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+             rotation_mode="anchor")
+    for i in range(len(top_10_suffixes)):
+        for j in range(len(top_10_prefix)):
+            ppp = str(pp_tops[i, j])[:3]
+            ppp = float(ppp)
+            text = ax.text(j, i, ppp,
+                           ha="center", va="center", color="w")
+    ax.set_title("")
+    fig.tight_layout()
+    plt.show()
+
+    # Worse prefixes
+    probs_worst = np.zeros(shape=(len(worst_prefix), 10))
+    for j, t in enumerate(worst_prefix):
+        pp = np.zeros(shape=10)
+        for i, p in enumerate(t[1]):
+            pp[i] = p
+        probs_worst[j, :] = pp
+    fig, ax = plt.subplots()
+    pp_tops = probs_worst.transpose(1, 0)
+    im = ax.imshow(pp_tops[:, :10])
+    ax.set_xticks(np.arange(len(worst_10_prefix)))
+    ax.set_yticks(np.arange(len(top_10_suffixes)))
+    ax.set_xticklabels(worst_10_prefix)
+    ax.set_yticklabels(top_10_suffixes)
+    # ax.set_xticklabels(top_10_suffixes)
+    # ax.set_yticklabels(top_10_prefix)
+    plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+             rotation_mode="anchor")
+    for i in range(len(top_10_suffixes)):
+        for j in range(len(worst_10_prefix)):
+            ppp = str(pp_tops[i, j])[:4]
+            ppp = float(ppp)
+            text = ax.text(j, i, ppp,
+                           ha="center", va="center", color="w")
+    ax.set_title("")
+    fig.tight_layout()
+    plt.show()
 
 if __name__=='__main__':
-    main()
+    # Compute accuracies with KN on all the test sets
+    # Here we can talk about the long time dependencies between the unks
+    # the errors are compounded because the algo can only look at the last
+    # token to make a prediction
+    # When does the algo fail? We would expect it to fail when the prefix has many different
+    # suffix possible (the algo's confidence is not very high since it has multiple different choices)
+    # and to do good when it is confident (not many different choices and high probability for the first one)
+    # => To verify this we will compute the algo's "probability distribution" vs the overall accuracy
+    # it has for each prefix in the test set
+    prefix_dist_dict = {}
+    with open('results/KN_results.txt', 'a') as f:
+        for test_set in test_sets:
+            total_true, total_unk, prefix_dist_dict = evaluate_test_set(test_set, prefix_dist_dict)
+            accuracy = float(total_true) / float(total_unk)
+            f.write('processed file: {} -- accuracy: {}\n'.format(test_set, accuracy))
+            print('processed file: {} -- accuracy: {}'.format(test_set, accuracy))
