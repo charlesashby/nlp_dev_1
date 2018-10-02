@@ -22,19 +22,22 @@ train_file_name = os.path.join(data_path, 'en/train-europarl-v7.fi-en.en')
 # test_40 = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u40c.en')
 
 # Benchmark
-word_counts = {}
-with open(train_file_name, 'r') as f:
-    lines = f.readlines()
-    for i, line in enumerate(lines):
-        if i % 1000 == 0:
-            print('tokenizing line: {}/1000000'.format(i))
-        tokens = line.split(' ')
-        for token in tokens:
-            if token in word_counts:
-                word_counts[token] += 1
-            else:
-                word_counts[token] = 1
+def get_tokens_dict():
+    word_counts = {}
+    with open(train_file_name, 'r') as f:
+        lines = f.readlines()
+        for i, line in enumerate(lines):
+            if i % 1000 == 0:
+                print('tokenizing line: {}/1000000'.format(i))
+            tokens = line.split(' ')
+            for token in tokens:
+                if token in word_counts:
+                    word_counts[token] += 1
+                else:
+                    word_counts[token] = 1
+    return word_counts
 
+word_counts = get_tokens_dict()
 # Sort tokens
 sorted_tokens = sorted(word_counts.items(), key=lambda item: item[1])
 
