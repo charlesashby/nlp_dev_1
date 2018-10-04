@@ -14,6 +14,8 @@ import time
 data_path = "/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1"
 train_file_name = os.path.join(data_path, 'en/train-europarl-v7.fi-en.en')
 word2vec_dir = '/home/ashbylepoc/tmp/word2vec/'
+SAVE_PATH = data_path + 'checkpoints/lstm'
+
 
 
 def get_tokens_dict():
@@ -103,26 +105,31 @@ class DataReader(object):
         mini_batch_y = np.zeros(shape=[n_lines,
                                        self.max_n_tokens_sentence,
                                        self.n_tokens_dict])
+        mini_batch_mask_end_sentence = np.zeros(shape=[n_lines,
+                                                       self.max_n_tokens_sentence,
+                                                       self.n_tokens_dict])
 
         for l, line in enumerate(lines):
 
             tokens = line.split(' ')[:self.max_n_tokens_sentence]
-            tokens.append('</s>')
+            n_tokens = len(tokens)
+            tokens += ['</s>' for _ in range(self.max_n_tokens_sentence - n_tokens - 1)]
             for i, token in enumerate(tokens[:-1]):
                 token_pos = self.get_token_dict_pos(token)
                 token_pos_target = self.get_token_dict_pos(tokens[i + 1])
                 mini_batch_x[l][i][token_pos] = 1.
                 mini_batch_y[l][i][token_pos_target] = 1.
-        return mini_batch_x, mini_batch_y
+                mini_batch_mask_end_sentence[l, i, :] = 1.
+        return mini_batch_x, mini_batch_y, mini_batch_mask_end_sentence
 
     def iterate_mini_batch(self, batch_size, unk_p):
         n_samples = self.n_lines
         n_batch = int(n_samples / batch_size)
 
         for i in range(n_batch):
-            inputs, targets = self.make_mini_batch(
+            inputs, targets, mask = self.make_mini_batch(
                 self.lines[i * batch_size: (i + 1) * batch_size])
-            yield inputs, targets
+            yield inputs, targets, mask
 
 
 class LSTM(object):
@@ -147,24 +154,30 @@ class LSTM(object):
 if __name__ == '__main__':
     # with open('tokens_dict.pickle', 'wb') as f:
     #     pickle.dump(word_counts, f)
-    model = KeyedVectors.load_word2vec_format(
-        '{}/GoogleNews-vectors-negative300.bin'.format(word2vec_dir),
-        binary=True)
+#     model = KeyedVectors.load_word2vec_format(
+#         '{}/GoogleNews-vectors-negative300.bin'.format(word2vec_dir),
+#         binary=True)
+
+    from lstm.lstm import *
+
     with open('tokens_dict.pickle', 'rb') as f:
         tokens_dict = pickle.load(f)
-
+    print('building graph')
     # Visualize tokens distribution
     sorted_tokens = sorted(tokens_dict.items(), key=lambda item: item[1])
 
-    data_reader = DataReader(train_file_name, tokens_dict, max_n_tokens_dict=1000, max_n_tokens_sentence=150)
-    b_x, b_y = data_reader.make_mini_batch(data_reader.lines[:32])
+
+    # b_x, b_y, m = data_reader.make_mini_batch(data_reader.lines[:32])
     batch_size = 32
-    rnn_size = 100
-    max_n_token_sentence = 150
+    rnn_size = 1000
+    max_n_token_sentence = 100
     max_n_token_dict = 1000 + 3
-    learning_rate = 0.0001
+    learning_rate = 0.01
+    data_reader = DataReader(train_file_name, tokens_dict,
+                             max_n_tokens_dict=1000, max_n_tokens_sentence=max_n_token_sentence)
     token_dict = [t for t in tokens_dict][-1000:] + ['</s>', '<UNKNOWN>', '<UNK>']
     n_tokens_dict = len(token_dict)
+    masks = tf.placeholder('float32', shape=[None, max_n_token_sentence, max_n_token_dict])
     y = tf.placeholder('float32', shape=[None, max_n_token_sentence, max_n_token_dict])
     x = tf.placeholder('float32', shape=[None, max_n_token_sentence, max_n_token_dict])
     cell = rnn.LSTMCell(rnn_size, state_is_tuple=True, forget_bias=0.0, reuse=False)
@@ -175,21 +188,76 @@ if __name__ == '__main__':
     w = tf.get_variable("w", [rnn_size, max_n_token_dict], dtype='float32')
     b = tf.get_variable("b", [max_n_token_dict], dtype='float32')
     preds = tf.nn.softmax(tf.matmul(outputs_reshape, w) + b)
-    # preds_reshaped = tf.reshape(preds, shape=[-1, max_n_token_sentence, max_n_token_dict])
+    preds_reshaped = tf.reshape(preds, shape=[-1, max_n_token_sentence, max_n_token_dict])
 
     # compute loss
     y_reshaped = tf.reshape(y, shape=[-1, max_n_token_dict])
+    # cross_entropy = y_reshaped * tf.log(tf.clip_by_value(preds, 1e-10, 1.0))
+
+    # Remove EOS tokens from cross entropy loss
+    # mask_reshaped = tf.reshape(masks, shape=[-1, max_n_token_dict])
+    # cross_entropy_masked = - tf.reduce_sum(mask_reshaped * cross_entropy)
+    # cost = cross_entropy_masked
     cost = - tf.reduce_sum(y_reshaped * tf.log(tf.clip_by_value(preds, 1e-10, 1.0)))
+
     predictions = tf.equal(tf.argmax(preds, 1), tf.argmax(y_reshaped, 1))
+    predictions_reshaped = tf.reshape(predictions, shape=[-1, max_n_token_sentence])
+
+    predictions_sentence_wise = [tf.equal(tf.argmax(preds_reshaped[i]),
+                                          tf.argmax(y[i])) for i in range(batch_size)]
     acc = tf.reduce_mean(tf.cast(predictions, 'float32'))
     optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(cost)
 
+    print('Done building graph ')
+    print('training...')
+    saver = tf.train.Saver()
+    best_acc = 0.
     with tf.Session() as sess:
         sess.run(tf.global_variables_initializer())
-        for i in range(10000):
-            _, a, c = sess.run([optimizer, acc, cost],
-                               feed_dict={x: b_x, y: b_y})
-            print('epoch: {} - acc: {} - loss: {}'.format(i, a, c))
+        n_batch = int(700000 / 32)
+        for j in range(100):
+            # print('ok')
+            for i in range(n_batch):
+                b_x, b_y, m = data_reader.make_mini_batch(data_reader.lines[i * 32:(i + 1) * 32])
+                _, a, c, p, pp = sess.run([optimizer, acc, cost, predictions_sentence_wise, preds_reshaped],
+                                   feed_dict={x: b_x, y: b_y})
+                print('TRAIN: iteration: {} - acc: {} - loss: {}'.format(i, a, c))
+                if i % 100 == 0:
+                    valid_acc = []
+                    for k in range(10):
+                        # compute accuracy on validation set
+                        bb_x, bb_y, _ = data_reader.make_mini_batch(data_reader.lines[-(k + 1) * 32:-k * 32])
+                        aa, cc = sess.run([acc, cost],
+                                          feed_dict={x: b_x, y: b_y})
+                        valid_acc.append(aa)
+                    mean_acc = np.mean(valid_acc)
+                    if mean_acc > best_acc:
+                        best_acc = mean_acc
+                        save_path = saver.save(sess, SAVE_PATH)
+                        print('saving model')
+                    print('VALID: iteration: {} - acc: {}'.format(i, mean_acc))
+
+    with tf.Session() as sess:
+        saver.restore(sess, SAVE_PATH)
+        b_x, b_y, m = data_reader.make_mini_batch(data_reader.lines[-32:])
+        _, a, c, p, pp = sess.run([optimizer, acc, cost, predictions_sentence_wise, preds_reshaped],
+                                  feed_dict={x: b_x, y: b_y})
+        print('TRAIN: iteration: {} - acc: {} - loss: {}'.format(1, a, c))
+
+"""
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        for i in range(1000):
+            # b_x, b_y = data_reader.make_mini_batch(data_reader.lines[i * 32:(i + 1) * 32])
+            _, a, c, p, pp, m, preds_, mask_reshaped_ = sess.run([optimizer, acc, cost,
+                                          predictions_sentence_wise,
+                                          preds_reshaped, masks,
+                                          preds, mask_reshaped],
+                               feed_dict={x: b_x, y: b_y, masks: m})
+            print('TRAIN: iteration: {} - acc: {} - loss: {}'.format(i, a, c))
+"""
+
 
     # Test time inference
     # https://stackoverflow.com/questions/42440565/how-to-feed-back-rnn-output-to-input-in-tensorflow
+
