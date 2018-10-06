@@ -147,3 +147,82 @@ class DataReader(object):
             inputs, targets, unk_pos = self.make_mini_batch(
                 self.lines[i * batch_size: (i + 1) * batch_size], unk_p)
             yield inputs, targets
+
+
+
+    with tf.Session() as sess:
+        sess.run(tf.global_variables_initializer())
+        n_batch = int(700000 / 32)
+        for j in range(100):
+            # print('ok')
+            for i in range(n_batch):
+                b_x, b_y, m = data_reader.make_mini_batch(data_reader.lines[i * 32:(i + 1) * 32])
+
+                _, c, predictions_ = sess.run([optimizer, cost, predictions],
+                                                feed_dict={x: b_x, y: b_y})
+
+                predictions_ = predictions_.reshape(batch_size, max_n_token_sentence)
+                n_pred_ok__ = 0
+                n_pred__ = 0
+                for kkk, lll in enumerate(m):
+                    for vvv, maskkk in enumerate(lll):
+                        if maskkk == 1.:
+                            if predictions_[kkk][vvv]:
+                                n_pred_ok__ += 1.
+                                n_pred__ += 1.
+                            else:
+                                n_pred__ += 1.
+                a = n_pred_ok__ / n_pred__
+                print('TRAIN: iteration: {} - acc: {} - loss: {}'.format(i, a, c))
+                if i % 100 == 0:
+                    valid_acc = []
+                    for k in range(10):
+                        k += 1
+                        # compute accuracy on validation set
+                        bb_x, bb_y, mm = data_reader.make_mini_batch(data_reader.lines[-(k + 1) * 32:-k * 32])
+                        cc, predictions__, preds_ = sess.run([cost, predictions, preds],
+                                                    feed_dict={x: bb_x, y: bb_y})
+                        n_pred_ok_ = 0
+                        n_pred_ = 0
+                        reshaped_predictions__ = predictions__.reshape(batch_size, max_n_token_sentence)
+                        reshaped_maskk = mm.reshape((-1))
+                        # reshaped_predictions__ = predictions__.reshape((-1,))
+                        for kk, ll in enumerate(reshaped_maskk):
+                            if ll == 1.:
+                                if predictions__[kk]:
+                                    print('good_one!')
+                                    pred_word_index = np.argmax(preds_[kk], axis=0)
+                                    predicted_word = token_dict[pred_word_index]
+
+                        for kk, ll in enumerate(mm):
+                            for vv, maskk in enumerate(ll):
+                                if maskk == 1.:
+                                    if predictions__[kk][vv]:
+                                        print('good one!')
+                                        pred_word_index = np.argmax(preds_[vv], axis=0)
+                                        predicted_word = token_dict[pred_word_index]
+                                        n_pred_ok_ += 1.
+                                        n_pred_ += 1.
+                                    else:
+                                        n_pred_ += 1.
+
+                        aa = n_pred_ok_ / n_pred_
+                        valid_acc.append(aa)
+                    mean_acc = np.mean(valid_acc)
+                    if mean_acc > best_acc:
+                        best_acc = mean_acc
+                        save_path = saver.save(sess, SAVE_PATH)
+                        print('saving model')
+
+                    # check predicted words:
+                    reshaped_predictions__ = predictions__.reshape((-1,))
+                    cc_d = 0
+                    for d, pred__ in enumerate(reshaped_predictions__):
+                        if int(pred__) == 1.:
+                            cc_d +=1
+                            print(d)
+                    print(cc_d)
+
+
+
+                    print('VALID: iteration: {} - acc: {} -- last_pred:'.format(i, mean_acc))

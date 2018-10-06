@@ -373,8 +373,6 @@ def visualizing_failures(prefix_dist_dict):
         probs_top[j, :] = pp
         # probs_top.append(pp)
 
-
-
     fig, ax = plt.subplots()
     pp_tops = probs_top.transpose(1, 0)
     im = ax.imshow(pp_tops[:, :10])
