@@ -1,10 +1,28 @@
 import tensorflow as tf
 import os, re
-
+# from lstm_1 import *
 
 # data_path = '/home/ashbylepoc/tmp/nlp_dev_1'
-data_path = "/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1"
+data_path = "/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/"
+raw_data = os.path.join(data_path, 'en/train-europarl-v7.fi-en.en')
+train_file_name = os.path.join(data_path, 'en/train_en_strutured.csv')
 test_file_name = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u10.en')
+shuffled_train_set = os.path.join(data_path, 'en/train_en_shuffled.csv')
+shuffled_valid_set = os.path.join(data_path, 'en/valid_en_shuffled.csv')
+word2vec_dir = '/home/ashbylepoc/tmp/word2vec/'
+SAVE_PATH = data_path + 'checkpoints/lstm_1'
+
+import tensorflow as tf
+import os, re
+# from lstm_1 import *
+
+# data_path = '/home/ashbylepoc/tmp/nlp_dev_1'
+data_path = "/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/"
+raw_data = os.path.join(data_path, 'en/train-europarl-v7.fi-en.en')
+train_file_name = os.path.join(data_path, 'en/train_en_strutured.csv')
+test_file_name = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u10.en')
+shuffled_train_set = os.path.join(data_path, 'en/train_en_shuffled.csv')
+shuffled_valid_set = os.path.join(data_path, 'en/valid_en_shuffled.csv')
 word2vec_dir = '/home/ashbylepoc/tmp/word2vec/'
 SAVE_PATH = data_path + 'checkpoints/lstm_1'
 
@@ -12,81 +30,82 @@ SAVE_PATH = data_path + 'checkpoints/lstm_1'
 
 
 if __name__ == '__main__':
-    from lstm.lstm import *
-
+    from lstm.lstm_1 import *
     with open('tokens_dict.pickle', 'rb') as f:
         tokens_dict = pickle.load(f)
     print('building graph')
-    # Visualize tokens distribution
-    sorted_tokens = sorted(tokens_dict.items(), key=lambda item: item[1])
 
     # b_x, b_y, m = data_reader.make_mini_batch(data_reader.lines[:32])
-    batch_size = 1
+    # batch_size = 1
+    # valid_batch_size = 1000
     rnn_size = 1000
-    max_n_token_sentence = 400
-    max_n_token_dict = 1000 + 3
-    learning_rate = 0.01
-    data_reader = DataReader(train_file_name, tokens_dict,
-                             max_n_tokens_dict=1000,
-                             max_n_tokens_sentence=max_n_token_sentence)
-    # data_reader = DataReader(train_file_name, tokens_dict,
-    #                          max_n_tokens_dict=1000, max_n_tokens_sentence=max_n_token_sentence)
-    token_dict = [t for t in tokens_dict][-1000:] + ['</s>', '<UNKNOWN>', '<UNK>']
-    n_tokens_dict = len(token_dict)
-    # masks = tf.placeholder('float32', shape=[None, max_n_token_sentence, max_n_token_dict])
-    # y = tf.placeholder('float32', shape=[None, max_n_token_sentence, max_n_token_dict])
-    # x = tf.placeholder('float32', shape=[None, max_n_token_sentence, max_n_token_dict])
+    max_n_token_sentence = 100
+    max_n_token_dict = 10000 + 3
+    learning_rate = 0.001
+    sorted_tokens = sorted(tokens_dict.items(), key=lambda item: item[1])
+    token_dict = [t[0] for t in sorted_tokens[-max_n_token_dict:]] + ['<s>', '<UNKNOWN>', '<UNK>']
+    data_reader = DataReader(shuffled_train_set, shuffled_valid_set,
+                             10, tokens_dict, 400, 10000)
+
+    # GRAPH
+    batch_size = tf.placeholder(tf.int32, [], name='batch_size')
+    y = tf.placeholder('float32', shape=[None, max_n_token_dict])
     x = tf.placeholder('float32', shape=[None, None, max_n_token_dict])
-    y = tf.placeholder('float32', shape=[None, None, max_n_token_dict])
     cell = rnn.LSTMCell(rnn_size, state_is_tuple=True, forget_bias=0.0, reuse=False)
     initial_rnn_state = cell.zero_state(batch_size, dtype='float32')
-    outputs, final_rnn_state = tf.nn.dynamic_rnn(cell, x, initial_state=initial_rnn_state,
+    outputs, final_rnn_state = tf.nn.dynamic_rnn(cell, x,
+                                                 initial_state=initial_rnn_state,
                                                  dtype='float32')
-    outputs_reshape = tf.reshape(outputs, shape=[-1, rnn_size])
+    outputs = tf.transpose(outputs, [1, 0, 2])
+    last = outputs[-1]
+    outputs_reshape = tf.reshape(last, shape=[-1, rnn_size])
     w = tf.get_variable("w", [rnn_size, max_n_token_dict], dtype='float32')
     b = tf.get_variable("b", [max_n_token_dict], dtype='float32')
     preds = tf.nn.softmax(tf.matmul(outputs_reshape, w) + b)
     # preds_reshaped = tf.reshape(preds, shape=[-1, max_n_token_sentence, max_n_token_dict])
-
-    # compute loss
-    y_reshaped = tf.reshape(y, shape=[-1, max_n_token_dict])
+    cost = - tf.reduce_sum(y * tf.log(tf.clip_by_value(preds, 1e-10, 1.0)), axis=1)
+    cost = tf.reduce_mean(cost, axis=0)
+    predictions = tf.cast(tf.equal(tf.argmax(preds, 1), tf.argmax(y, 1)), dtype='float32')
+    acc = tf.reduce_mean(predictions)
     saver = tf.train.Saver()
 
     with tf.Session() as sess:
-        saver.restore(sess, SAVE_PATH)
-        with open(test_file_name) as f:
+        saver.restore(sess, '{}_{}'.format(SAVE_PATH, 200000))
+        with open(test_file_name, 'r') as f:
             lines = f.readlines()
             tokens = [tokenize_sentence(line) for line in lines]
-            b_x, b_y, m = data_reader.make_mini_batch(lines)
+            batches = data_reader.make_batch_test(lines)
 
-            for j, line in enumerate(b_x):
-                # line = line.reshape(1, 1, 1003)
+            for j, line in enumerate(batches):
+                # line = line.reshape(1, 1, max_n_token_dict)
                 # unks = []
                 completed_sentence = []
-
-                initial_input = line[0].reshape(1, 1, 1003)
-                p, s = sess.run([preds, final_rnn_state],
-                                feed_dict={x: initial_input})
+                line = np.transpose(line, axes=[1, 0, 2])
+                for i in range(10):
+                    initial_input = line[:, i:i+4].reshape(1, 4, max_n_token_dict)
+                    p, s = sess.run([preds, final_rnn_state],
+                                    feed_dict={x: initial_input,
+                                               batch_size: 1})
+                    print(np.argmax(p))
                 fetches = {'last_state': s,
                            'last_pred': p}
                 accurate_pred = 0
                 unks = []
                 for i, token in enumerate(line[1:]):
                     i += 1
-                    if token[-3] == 1.:
-                        break
-                    token = token.reshape(1, 1, 1003)
+
+                    token = token.reshape(1, 1, max_n_token_dict)
                     if token[0][0][-1] == 1.:
                         # send previous pred
                         target_word = re.search('<unk w="(.*)"/>', tokens[j][i]).group(1)
-                        feed_dict = {x: fetches['last_pred'].reshape(1, 1, 1003),
+                        feed_dict = {x: fetches['last_pred'].reshape(1, 1, max_n_token_dict),
                                      initial_rnn_state: fetches['last_state']}
                         p, s = sess.run([preds, final_rnn_state],
                                         feed_dict=feed_dict)
                         fetches['last_state'] = s
                         fetches['last_pred'] = p
-                        pred_word_index = np.argmax(p.reshape(1003), axis=0)
-                        predicted_word = tokens_dict[pred_word_index]
+                        pred_word_index = np.argmax(p.reshape(max_n_token_dict), axis=0)
+                        predicted_word = token_dict[pred_word_index]
                         # completed_sentence.append(predicted_word[0])
                         unks.append(target_word)
                         if target_word == predicted_word:

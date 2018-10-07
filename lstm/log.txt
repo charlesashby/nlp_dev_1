@@ -1,0 +1,180 @@
+TRAIN: iteration: 0 - acc: 0.0 - loss: 9.78828430176 
+TRAIN: iteration: 0 - acc: 0.0 - loss: 9.78690719604 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints/lstm_0/lstmVALID: iteration: 0 - acc: 0.058749999851 
+TRAIN: iteration: 500 - acc: 0.0753125026822 - loss: 7.06601333618 
+TRAIN: iteration: 1000 - acc: 0.0968749970198 - loss: 6.68817901611 
+TRAIN: iteration: 1500 - acc: 0.125 - loss: 6.46827030182 
+TRAIN: iteration: 2000 - acc: 0.139937505126 - loss: 6.27820396423 
+TRAIN: iteration: 2500 - acc: 0.163625001907 - loss: 6.07354307175 
+TRAIN: iteration: 3000 - acc: 0.173312500119 - loss: 5.9466176033 
+TRAIN: iteration: 3500 - acc: 0.183437496424 - loss: 5.86603307724 
+TRAIN: iteration: 4000 - acc: 0.181312501431 - loss: 5.79893922806 
+TRAIN: iteration: 4500 - acc: 0.198500007391 - loss: 5.65947341919 
+TRAIN: iteration: 5000 - acc: 0.190750002861 - loss: 5.67294454575 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints/lstm_5000/lstmVALID: iteration: 5000 - acc: 0.206874996424 
+TRAIN: iteration: 5500 - acc: 0.201625004411 - loss: 5.61778020859 
+TRAIN: iteration: 6000 - acc: 0.201625004411 - loss: 5.53434610367 
+TRAIN: iteration: 6500 - acc: 0.210374996066 - loss: 5.4730682373 
+TRAIN: iteration: 7000 - acc: 0.209875002503 - loss: 5.45746469498 
+TRAIN: iteration: 7500 - acc: 0.212750002742 - loss: 5.41044378281 
+TRAIN: iteration: 8000 - acc: 0.219687506557 - loss: 5.34617471695 
+TRAIN: iteration: 8500 - acc: 0.221375003457 - loss: 5.30653333664 
+TRAIN: iteration: 9000 - acc: 0.218374997377 - loss: 5.31564569473 
+TRAIN: iteration: 9500 - acc: 0.224625006318 - loss: 5.25470066071 
+TRAIN: iteration: 10000 - acc: 0.229874998331 - loss: 5.20149898529 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints/lstm_10000/lstmVALID: iteration: 10000 - acc: 0.230937495828 
+TRAIN: iteration: 10500 - acc: 0.220812499523 - loss: 5.26556539536 
+TRAIN: iteration: 11000 - acc: 0.230124995112 - loss: 5.17023992538 
+TRAIN: iteration: 11500 - acc: 0.225187495351 - loss: 5.239818573 
+TRAIN: iteration: 12000 - acc: 0.223312497139 - loss: 5.2168006897 
+TRAIN: iteration: 12500 - acc: 0.233562499285 - loss: 5.12246894836 
+TRAIN: iteration: 13000 - acc: 0.232187494636 - loss: 5.13923740387 
+TRAIN: iteration: 13500 - acc: 0.231999993324 - loss: 5.11073064804 
+TRAIN: iteration: 14000 - acc: 0.236249998212 - loss: 5.12618541718 
+TRAIN: iteration: 0 - acc: 0.0 - loss: 9.78317451477 
+TRAIN: iteration: 0 - acc: 0.0 - loss: 9.20834159851 
+TRAIN: iteration: 0 - acc: 0.0 - loss: 9.21084785461 
+VALID: iteration: 0 - acc: 0.0 
+TRAIN: iteration: 0 - acc: 0.0 - loss: 9.21155261993 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_0/lstmVALID: iteration: 0 - acc: 0.0187500007451 
+TRAIN: iteration: 500 - acc: 0.0748125016689 - loss: 6.91284275055 
+TRAIN: iteration: 1000 - acc: 0.0935000032187 - loss: 6.52262020111 
+TRAIN: iteration: 1500 - acc: 0.129124999046 - loss: 6.15620803833 
+TRAIN: iteration: 2000 - acc: 0.158062502742 - loss: 5.8315114975 
+TRAIN: iteration: 2500 - acc: 0.18268750608 - loss: 5.59162282944 
+TRAIN: iteration: 3000 - acc: 0.202062502503 - loss: 5.37873649597 
+TRAIN: iteration: 3500 - acc: 0.222937494516 - loss: 5.20002937317 
+TRAIN: iteration: 4000 - acc: 0.232562497258 - loss: 5.11953639984 
+TRAIN: iteration: 4500 - acc: 0.24525000155 - loss: 4.96175670624 
+TRAIN: iteration: 5000 - acc: 0.249624997377 - loss: 4.92450857162 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_5000/lstmVALID: iteration: 5000 - acc: 0.246562495828 
+TRAIN: iteration: 5500 - acc: 0.260749995708 - loss: 4.82301616669 
+TRAIN: iteration: 6000 - acc: 0.271812498569 - loss: 4.78027629852 
+TRAIN: iteration: 6500 - acc: 0.270375013351 - loss: 4.72167778015 
+TRAIN: iteration: 7000 - acc: 0.282187491655 - loss: 4.71417999268 
+TRAIN: iteration: 7500 - acc: 0.28900000453 - loss: 4.59645223618 
+TRAIN: iteration: 8000 - acc: 0.289750009775 - loss: 4.57220315933 
+TRAIN: iteration: 8500 - acc: 0.297187507153 - loss: 4.49707603455 
+TRAIN: iteration: 9000 - acc: 0.307937502861 - loss: 4.37619256973 
+TRAIN: iteration: 9500 - acc: 0.311874985695 - loss: 4.3594584465 
+TRAIN: iteration: 10000 - acc: 0.310624986887 - loss: 4.36673545837 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_10000/lstmVALID: iteration: 10000 - acc: 0.3046875 
+TRAIN: iteration: 10500 - acc: 0.322437494993 - loss: 4.33227586746 
+TRAIN: iteration: 11000 - acc: 0.324999988079 - loss: 4.27203273773 
+TRAIN: iteration: 11500 - acc: 0.325687497854 - loss: 4.25554704666 
+TRAIN: iteration: 12000 - acc: 0.330000013113 - loss: 4.18485736847 
+TRAIN: iteration: 12500 - acc: 0.333062499762 - loss: 4.19858598709 
+TRAIN: iteration: 13000 - acc: 0.336250007153 - loss: 4.18175458908 
+TRAIN: iteration: 13500 - acc: 0.346187502146 - loss: 4.08755588531 
+TRAIN: iteration: 14000 - acc: 0.336374998093 - loss: 4.10646295547 
+TRAIN: iteration: 14500 - acc: 0.346437513828 - loss: 4.06382131577 
+TRAIN: iteration: 15000 - acc: 0.343437492847 - loss: 4.04810523987 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_15000/lstmVALID: iteration: 15000 - acc: 0.355937510729 
+TRAIN: iteration: 15500 - acc: 0.348562508821 - loss: 4.01798200607 
+TRAIN: iteration: 16000 - acc: 0.350250005722 - loss: 4.04144668579 
+TRAIN: iteration: 16500 - acc: 0.356249988079 - loss: 3.9611415863 
+TRAIN: iteration: 17000 - acc: 0.356124997139 - loss: 3.93461632729 
+TRAIN: iteration: 17500 - acc: 0.356562495232 - loss: 4.0127491951 
+TRAIN: iteration: 18000 - acc: 0.358749985695 - loss: 3.91479444504 
+TRAIN: iteration: 18500 - acc: 0.35943749547 - loss: 3.91346883774 
+TRAIN: iteration: 19000 - acc: 0.364062488079 - loss: 3.91749382019 
+TRAIN: iteration: 19500 - acc: 0.366312503815 - loss: 3.88821554184 
+TRAIN: iteration: 20000 - acc: 0.361375004053 - loss: 3.89980196953 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_20000/lstmVALID: iteration: 20000 - acc: 0.369062513113 
+TRAIN: iteration: 20500 - acc: 0.368437498808 - loss: 3.87474751472 
+TRAIN: iteration: 21000 - acc: 0.371312499046 - loss: 3.83625984192 
+TRAIN: iteration: 21500 - acc: 0.370624989271 - loss: 3.87581562996 
+TRAIN: iteration: 22000 - acc: 0.373250007629 - loss: 3.82995319366 
+TRAIN: iteration: 22500 - acc: 0.379624992609 - loss: 3.80022668839 
+TRAIN: iteration: 23000 - acc: 0.374125003815 - loss: 3.76579856873 
+TRAIN: iteration: 23500 - acc: 0.381187498569 - loss: 3.76669049263 
+TRAIN: iteration: 24000 - acc: 0.385062485933 - loss: 3.75927877426 
+TRAIN: iteration: 24500 - acc: 0.380937486887 - loss: 3.75095057487 
+TRAIN: iteration: 25000 - acc: 0.387124985456 - loss: 3.69968366623 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_25000/lstmVALID: iteration: 25000 - acc: 0.37656250596 
+TRAIN: iteration: 25500 - acc: 0.380687505007 - loss: 3.75789022446 
+TRAIN: iteration: 26000 - acc: 0.38431251049 - loss: 3.7000234127 
+TRAIN: iteration: 26500 - acc: 0.380812495947 - loss: 3.72611188889 
+TRAIN: iteration: 27000 - acc: 0.390125006437 - loss: 3.68685936928 
+TRAIN: iteration: 27500 - acc: 0.391937494278 - loss: 3.6808681488 
+TRAIN: iteration: 28000 - acc: 0.396499991417 - loss: 3.64158892632 
+TRAIN: iteration: 28500 - acc: 0.393624991179 - loss: 3.59477734566 
+TRAIN: iteration: 29000 - acc: 0.391250014305 - loss: 3.64394044876 
+TRAIN: iteration: 29500 - acc: 0.39074999094 - loss: 3.66457033157 
+TRAIN: iteration: 30000 - acc: 0.400687485933 - loss: 3.60471916199 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_30000/lstmVALID: iteration: 30000 - acc: 0.40468749404 
+TRAIN: iteration: 30500 - acc: 0.399562507868 - loss: 3.59173965454 
+TRAIN: iteration: 31000 - acc: 0.396812498569 - loss: 3.63787770271 
+TRAIN: iteration: 31500 - acc: 0.40000000596 - loss: 3.61882281303 
+TRAIN: iteration: 32000 - acc: 0.403687506914 - loss: 3.56974697113 
+TRAIN: iteration: 32500 - acc: 0.401874989271 - loss: 3.58116936684 
+TRAIN: iteration: 33000 - acc: 0.405375003815 - loss: 3.55530810356 
+TRAIN: iteration: 33500 - acc: 0.412437498569 - loss: 3.55484652519 
+TRAIN: iteration: 34000 - acc: 0.402875006199 - loss: 3.5991961956 
+TRAIN: iteration: 34500 - acc: 0.405437499285 - loss: 3.56781053543 
+TRAIN: iteration: 35000 - acc: 0.404312491417 - loss: 3.54469537735 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_35000/lstmVALID: iteration: 35000 - acc: 0.410937488079 
+TRAIN: iteration: 35500 - acc: 0.411000013351 - loss: 3.53667235374 
+TRAIN: iteration: 36000 - acc: 0.408250004053 - loss: 3.50723290443 
+TRAIN: iteration: 36500 - acc: 0.412437498569 - loss: 3.50346684456 
+TRAIN: iteration: 37000 - acc: 0.41400000453 - loss: 3.50150871277 
+TRAIN: iteration: 37500 - acc: 0.409437507391 - loss: 3.51725316048 
+TRAIN: iteration: 38000 - acc: 0.411624997854 - loss: 3.49351859093 
+TRAIN: iteration: 38500 - acc: 0.413312494755 - loss: 3.50797390938 
+TRAIN: iteration: 39000 - acc: 0.410874992609 - loss: 3.47539877892 
+TRAIN: iteration: 39500 - acc: 0.405812501907 - loss: 3.54824209213 
+TRAIN: iteration: 40000 - acc: 0.406875014305 - loss: 3.50867271423 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_40000/lstmVALID: iteration: 40000 - acc: 0.411875009537 
+TRAIN: iteration: 40500 - acc: 0.418187499046 - loss: 3.48545694351 
+TRAIN: iteration: 41000 - acc: 0.420062512159 - loss: 3.44697356224 
+TRAIN: iteration: 41500 - acc: 0.421375006437 - loss: 3.43597841263 
+TRAIN: iteration: 42000 - acc: 0.411437511444 - loss: 3.48674297333 
+TRAIN: iteration: 42500 - acc: 0.421000003815 - loss: 3.42252588272 
+TRAIN: iteration: 43000 - acc: 0.418000012636 - loss: 3.44149160385 
+TRAIN: iteration: 43500 - acc: 0.417874991894 - loss: 3.42395877838 
+TRAIN: iteration: 44000 - acc: 0.417750000954 - loss: 3.41408848763 
+TRAIN: iteration: 44500 - acc: 0.430124998093 - loss: 3.36159968376 
+TRAIN: iteration: 45000 - acc: 0.426187485456 - loss: 3.36160206795 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_45000/lstmVALID: iteration: 45000 - acc: 0.422187507153 
+TRAIN: iteration: 45500 - acc: 0.430624991655 - loss: 3.40385389328 
+TRAIN: iteration: 46000 - acc: 0.426062494516 - loss: 3.38818216324 
+TRAIN: iteration: 46500 - acc: 0.41562500596 - loss: 3.44834375381 
+TRAIN: iteration: 47000 - acc: 0.433874994516 - loss: 3.3188803196 
+TRAIN: iteration: 47500 - acc: 0.427187502384 - loss: 3.36089634895 
+TRAIN: iteration: 48000 - acc: 0.435062497854 - loss: 3.30698680878 
+TRAIN: iteration: 48500 - acc: 0.427875012159 - loss: 3.32486653328 
+TRAIN: iteration: 49000 - acc: 0.432375013828 - loss: 3.36256456375 
+TRAIN: iteration: 49500 - acc: 0.427312493324 - loss: 3.36798787117 
+TRAIN: iteration: 50000 - acc: 0.423875004053 - loss: 3.35825872421 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_50000/lstmVALID: iteration: 50000 - acc: 0.446562498808 
+TRAIN: iteration: 50500 - acc: 0.435499995947 - loss: 3.3248872757 
+TRAIN: iteration: 51000 - acc: 0.427249997854 - loss: 3.38277459145 
+TRAIN: iteration: 51500 - acc: 0.435874998569 - loss: 3.29334521294 
+TRAIN: iteration: 52000 - acc: 0.438874989748 - loss: 3.29175400734 
+TRAIN: iteration: 52500 - acc: 0.432562500238 - loss: 3.3188765049 
+TRAIN: iteration: 53000 - acc: 0.437937498093 - loss: 3.29019832611 
+TRAIN: iteration: 53500 - acc: 0.427937507629 - loss: 3.34065675735 
+TRAIN: iteration: 54000 - acc: 0.433874994516 - loss: 3.32417464256 
+TRAIN: iteration: 54500 - acc: 0.433625012636 - loss: 3.30802893639 
+TRAIN: iteration: 55000 - acc: 0.434624999762 - loss: 3.29120254517 
+VALID: iteration: 55000 - acc: 0.422812491655 
+TRAIN: iteration: 55500 - acc: 0.432562500238 - loss: 3.31220650673 
+TRAIN: iteration: 56000 - acc: 0.435187488794 - loss: 3.29553413391 
+TRAIN: iteration: 0 - acc: 0.4375 - loss: 3.36230230331 
+VALID: iteration: 0 - acc: 0.439999997616 
+TRAIN: iteration: 500 - acc: 0.435499995947 - loss: 3.32342720032 
+TRAIN: iteration: 1000 - acc: 0.433375000954 - loss: 3.26648521423 
+TRAIN: iteration: 1500 - acc: 0.437249988317 - loss: 3.26276946068 
+TRAIN: iteration: 2000 - acc: 0.436250001192 - loss: 3.29430246353 
+TRAIN: iteration: 2500 - acc: 0.446437507868 - loss: 3.22251319885 
+TRAIN: iteration: 3000 - acc: 0.447250008583 - loss: 3.2714176178 
+TRAIN: iteration: 3500 - acc: 0.445749998093 - loss: 3.250177145 
+TRAIN: iteration: 4000 - acc: 0.442250013351 - loss: 3.26557970047 
+TRAIN: iteration: 4500 - acc: 0.439937502146 - loss: 3.26761555672 
+TRAIN: iteration: 5000 - acc: 0.442812502384 - loss: 3.24923491478 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_5000/lstmVALID: iteration: 5000 - acc: 0.454374998808 
+TRAIN: iteration: 5500 - acc: 0.436687499285 - loss: 3.26005959511 
+TRAIN: iteration: 6000 - acc: 0.445874989033 - loss: 3.23183846474 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_0_0/lstmVALID: iteration: 0 - acc: 0.0528125017881 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_0_0/lstmVALID: iteration: 0 - acc: 0.00437500001863 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_0_0/lstmVALID: iteration: 0 - acc: 0.019687499851 

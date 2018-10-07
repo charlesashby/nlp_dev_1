@@ -1,0 +1,3 @@
+TRAIN: iteration: 0 - acc: 0.0 - loss: 9.20895957947 
+TRAIN: iteration: 500 - acc: 0.0731875002384 - loss: 6.88399553299 
+TRAIN: iteration: 1000 - acc: 0.112687498331 - loss: 6.3393702507 
