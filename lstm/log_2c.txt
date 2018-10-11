@@ -1,0 +1,154 @@
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.31737422943 
+VALID: epoch: 0 - iteration: 0 - acc: 0.0 
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.32116508484 
+VALID: epoch: 0 - iteration: 0 - acc: 0.0 
+TRAIN: epoch: 0 - iteration: 500 - acc: 0.0753749981523 - loss: 6.54247188568 
+TRAIN: epoch: 0 - iteration: 1000 - acc: 0.0811249986291 - loss: 6.2976269722 
+TRAIN: epoch: 0 - iteration: 1500 - acc: 0.108999997377 - loss: 6.01474189758 
+TRAIN: epoch: 0 - iteration: 2000 - acc: 0.160062506795 - loss: 5.55250549316 
+TRAIN: epoch: 0 - iteration: 2500 - acc: 0.199187502265 - loss: 5.18954277039 
+TRAIN: epoch: 0 - iteration: 3000 - acc: 0.22356249392 - loss: 4.98354005814 
+TRAIN: epoch: 0 - iteration: 3500 - acc: 0.246374994516 - loss: 4.78888130188 
+TRAIN: epoch: 0 - iteration: 4000 - acc: 0.260625004768 - loss: 4.66715526581 
+TRAIN: epoch: 0 - iteration: 4500 - acc: 0.270000010729 - loss: 4.56903886795 
+TRAIN: epoch: 0 - iteration: 5000 - acc: 0.279312491417 - loss: 4.48351430893 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_5000_0/lstmVALID: epoch: 0 - iteration: 5000 - acc: 0.25937500596 
+TRAIN: epoch: 0 - iteration: 5500 - acc: 0.289875000715 - loss: 4.36150217056 
+TRAIN: epoch: 0 - iteration: 6000 - acc: 0.299124985933 - loss: 4.2832198143 
+TRAIN: epoch: 0 - iteration: 6500 - acc: 0.302625000477 - loss: 4.23951768875 
+TRAIN: epoch: 0 - iteration: 7000 - acc: 0.312812507153 - loss: 4.19457292557 
+TRAIN: epoch: 0 - iteration: 7500 - acc: 0.32187500596 - loss: 4.15496778488 
+TRAIN: epoch: 0 - iteration: 8000 - acc: 0.32662498951 - loss: 4.07037639618 
+TRAIN: epoch: 0 - iteration: 8500 - acc: 0.336187511683 - loss: 4.01514959335 
+TRAIN: epoch: 0 - iteration: 9000 - acc: 0.338499993086 - loss: 3.99166297913 
+TRAIN: epoch: 0 - iteration: 9500 - acc: 0.347062498331 - loss: 3.9081261158 
+TRAIN: epoch: 0 - iteration: 10000 - acc: 0.347437500954 - loss: 3.94422078133 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_10000_0/lstmVALID: epoch: 0 - iteration: 10000 - acc: 0.334687501192 
+TRAIN: epoch: 0 - iteration: 10500 - acc: 0.356124997139 - loss: 3.83689069748 
+TRAIN: epoch: 0 - iteration: 11000 - acc: 0.361999988556 - loss: 3.8411450386 
+TRAIN: epoch: 0 - iteration: 11500 - acc: 0.364437490702 - loss: 3.80826210976 
+TRAIN: epoch: 0 - iteration: 12000 - acc: 0.363499999046 - loss: 3.78070068359 
+TRAIN: epoch: 0 - iteration: 12500 - acc: 0.363999992609 - loss: 3.7976129055 
+TRAIN: epoch: 0 - iteration: 13000 - acc: 0.364312499762 - loss: 3.73375535011 
+TRAIN: epoch: 0 - iteration: 13500 - acc: 0.375937491655 - loss: 3.67827653885 
+TRAIN: epoch: 0 - iteration: 14000 - acc: 0.370124995708 - loss: 3.69074511528 
+TRAIN: epoch: 0 - iteration: 14500 - acc: 0.378250002861 - loss: 3.66112017632 
+TRAIN: epoch: 0 - iteration: 15000 - acc: 0.380562514067 - loss: 3.66113948822 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_15000_0/lstmVALID: epoch: 0 - iteration: 15000 - acc: 0.358749985695 
+TRAIN: epoch: 0 - iteration: 15500 - acc: 0.377187490463 - loss: 3.67675089836 
+TRAIN: epoch: 0 - iteration: 16000 - acc: 0.384124994278 - loss: 3.65638041496 
+TRAIN: epoch: 0 - iteration: 16500 - acc: 0.376812487841 - loss: 3.67497873306 
+TRAIN: epoch: 0 - iteration: 17000 - acc: 0.381687492132 - loss: 3.62978363037 
+TRAIN: epoch: 0 - iteration: 17500 - acc: 0.394374996424 - loss: 3.54212331772 
+TRAIN: epoch: 0 - iteration: 18000 - acc: 0.392312496901 - loss: 3.55000829697 
+TRAIN: epoch: 0 - iteration: 18500 - acc: 0.398062497377 - loss: 3.51625227928 
+TRAIN: epoch: 0 - iteration: 19000 - acc: 0.394812494516 - loss: 3.53536081314 
+TRAIN: epoch: 0 - iteration: 19500 - acc: 0.3984375 - loss: 3.48841118813 
+TRAIN: epoch: 0 - iteration: 20000 - acc: 0.404312491417 - loss: 3.47691440582 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_20000_0/lstmVALID: epoch: 0 - iteration: 20000 - acc: 0.386562496424 
+TRAIN: epoch: 0 - iteration: 20500 - acc: 0.395749986172 - loss: 3.47493267059 
+TRAIN: epoch: 0 - iteration: 21000 - acc: 0.405937492847 - loss: 3.44869375229 
+TRAIN: epoch: 0 - iteration: 21500 - acc: 0.405375003815 - loss: 3.41335868835 
+TRAIN: epoch: 0 - iteration: 22000 - acc: 0.40612500906 - loss: 3.41145348549 
+TRAIN: epoch: 0 - iteration: 22500 - acc: 0.407375007868 - loss: 3.39398765564 
+TRAIN: epoch: 0 - iteration: 23000 - acc: 0.417562514544 - loss: 3.36490392685 
+TRAIN: epoch: 0 - iteration: 23500 - acc: 0.421249985695 - loss: 3.34779500961 
+TRAIN: epoch: 0 - iteration: 24000 - acc: 0.418999999762 - loss: 3.34838652611 
+TRAIN: epoch: 0 - iteration: 24500 - acc: 0.419124990702 - loss: 3.31269669533 
+TRAIN: epoch: 0 - iteration: 25000 - acc: 0.423500001431 - loss: 3.31364512444 
+VALID: epoch: 0 - iteration: 25000 - acc: 0.380312502384 
+TRAIN: epoch: 0 - iteration: 25500 - acc: 0.420562505722 - loss: 3.28186321259 
+TRAIN: epoch: 0 - iteration: 26000 - acc: 0.423624992371 - loss: 3.29334712029 
+TRAIN: epoch: 0 - iteration: 26500 - acc: 0.427312493324 - loss: 3.25516057014 
+TRAIN: epoch: 0 - iteration: 27000 - acc: 0.424374997616 - loss: 3.24410748482 
+TRAIN: epoch: 0 - iteration: 27500 - acc: 0.43125000596 - loss: 3.27165579796 
+TRAIN: epoch: 0 - iteration: 28000 - acc: 0.426874995232 - loss: 3.24446964264 
+TRAIN: epoch: 0 - iteration: 28500 - acc: 0.430124998093 - loss: 3.25850868225 
+TRAIN: epoch: 0 - iteration: 29000 - acc: 0.431062489748 - loss: 3.24960398674 
+TRAIN: epoch: 0 - iteration: 29500 - acc: 0.435499995947 - loss: 3.21142196655 
+TRAIN: epoch: 0 - iteration: 30000 - acc: 0.435000002384 - loss: 3.22999024391 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_30000_0/lstmVALID: epoch: 0 - iteration: 30000 - acc: 0.410625010729 
+TRAIN: epoch: 0 - iteration: 30500 - acc: 0.436625003815 - loss: 3.20122361183 
+TRAIN: epoch: 0 - iteration: 31000 - acc: 0.43599998951 - loss: 3.21548986435 
+TRAIN: epoch: 0 - iteration: 31500 - acc: 0.43125000596 - loss: 3.25272369385 
+TRAIN: epoch: 0 - iteration: 32000 - acc: 0.427562505007 - loss: 3.31726837158 
+TRAIN: epoch: 0 - iteration: 32500 - acc: 0.422937512398 - loss: 3.2999958992 
+TRAIN: epoch: 0 - iteration: 33000 - acc: 0.427875012159 - loss: 3.30449557304 
+TRAIN: epoch: 0 - iteration: 33500 - acc: 0.424312502146 - loss: 3.30881118774 
+TRAIN: epoch: 0 - iteration: 34000 - acc: 0.427875012159 - loss: 3.27279281616 
+TRAIN: epoch: 0 - iteration: 34500 - acc: 0.426874995232 - loss: 3.25405812263 
+TRAIN: epoch: 0 - iteration: 35000 - acc: 0.436125010252 - loss: 3.24119186401 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_35000_0/lstmVALID: epoch: 0 - iteration: 35000 - acc: 0.423124998808 
+TRAIN: epoch: 0 - iteration: 35500 - acc: 0.432375013828 - loss: 3.22605371475 
+TRAIN: epoch: 0 - iteration: 36000 - acc: 0.434812486172 - loss: 3.21832513809 
+TRAIN: epoch: 0 - iteration: 36500 - acc: 0.43762499094 - loss: 3.241761446 
+TRAIN: epoch: 0 - iteration: 37000 - acc: 0.444624990225 - loss: 3.15102052689 
+TRAIN: epoch: 1 - iteration: 0 - acc: 0.34375 - loss: 4.51490116119 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_0_1/lstmVALID: epoch: 1 - iteration: 0 - acc: 0.427500009537 
+TRAIN: epoch: 1 - iteration: 500 - acc: 0.439812511206 - loss: 3.15951085091 
+TRAIN: epoch: 1 - iteration: 1000 - acc: 0.441312491894 - loss: 3.15686988831 
+TRAIN: epoch: 1 - iteration: 1500 - acc: 0.439375013113 - loss: 3.16107273102 
+TRAIN: epoch: 1 - iteration: 2000 - acc: 0.441000014544 - loss: 3.14208436012 
+TRAIN: epoch: 1 - iteration: 2500 - acc: 0.448374986649 - loss: 3.11053824425 
+TRAIN: epoch: 1 - iteration: 3000 - acc: 0.444937497377 - loss: 3.11435747147 
+TRAIN: epoch: 1 - iteration: 3500 - acc: 0.448374986649 - loss: 3.07345986366 
+TRAIN: epoch: 1 - iteration: 4000 - acc: 0.451875001192 - loss: 3.05422949791 
+TRAIN: epoch: 1 - iteration: 4500 - acc: 0.452312499285 - loss: 3.06511569023 
+TRAIN: epoch: 1 - iteration: 5000 - acc: 0.456312507391 - loss: 3.03891682625 
+VALID: epoch: 1 - iteration: 5000 - acc: 0.406562507153 
+TRAIN: epoch: 1 - iteration: 5500 - acc: 0.456437498331 - loss: 2.99741268158 
+TRAIN: epoch: 1 - iteration: 6000 - acc: 0.462187498808 - loss: 2.96749329567 
+TRAIN: epoch: 1 - iteration: 6500 - acc: 0.456687510014 - loss: 3.00655913353 
+TRAIN: epoch: 1 - iteration: 7000 - acc: 0.469500005245 - loss: 2.97631859779 
+TRAIN: epoch: 1 - iteration: 7500 - acc: 0.458312511444 - loss: 2.99680352211 
+TRAIN: epoch: 1 - iteration: 8000 - acc: 0.45943748951 - loss: 2.94660019875 
+TRAIN: epoch: 1 - iteration: 8500 - acc: 0.469500005245 - loss: 2.92691922188 
+TRAIN: epoch: 1 - iteration: 9000 - acc: 0.462125003338 - loss: 2.95942974091 
+TRAIN: epoch: 1 - iteration: 9500 - acc: 0.475874990225 - loss: 2.89252686501 
+TRAIN: epoch: 1 - iteration: 10000 - acc: 0.469125002623 - loss: 2.9500439167 
+VALID: epoch: 1 - iteration: 10000 - acc: 0.424062490463 
+TRAIN: epoch: 1 - iteration: 10500 - acc: 0.478875011206 - loss: 2.87462496758 
+TRAIN: epoch: 1 - iteration: 11000 - acc: 0.473374992609 - loss: 2.90130853653 
+TRAIN: epoch: 1 - iteration: 11500 - acc: 0.481875002384 - loss: 2.85675048828 
+TRAIN: epoch: 1 - iteration: 12000 - acc: 0.474750012159 - loss: 2.86785316467 
+TRAIN: epoch: 1 - iteration: 12500 - acc: 0.472687512636 - loss: 2.90442585945 
+TRAIN: epoch: 1 - iteration: 13000 - acc: 0.473312497139 - loss: 2.86437559128 
+TRAIN: epoch: 1 - iteration: 13500 - acc: 0.478624999523 - loss: 2.83040213585 
+TRAIN: epoch: 1 - iteration: 14000 - acc: 0.473687499762 - loss: 2.86448931694 
+TRAIN: epoch: 1 - iteration: 14500 - acc: 0.477499991655 - loss: 2.83238863945 
+TRAIN: epoch: 1 - iteration: 15000 - acc: 0.477062493563 - loss: 2.85115933418 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_15000_1/lstmVALID: epoch: 1 - iteration: 15000 - acc: 0.429374992847 
+TRAIN: epoch: 1 - iteration: 15500 - acc: 0.480374991894 - loss: 2.85300350189 
+TRAIN: epoch: 1 - iteration: 16000 - acc: 0.481000006199 - loss: 2.83296251297 
+TRAIN: epoch: 1 - iteration: 16500 - acc: 0.476812511683 - loss: 2.85754680634 
+TRAIN: epoch: 1 - iteration: 17000 - acc: 0.478875011206 - loss: 2.83041453362 
+TRAIN: epoch: 1 - iteration: 17500 - acc: 0.486937493086 - loss: 2.76223134995 
+TRAIN: epoch: 1 - iteration: 18000 - acc: 0.487625002861 - loss: 2.79427552223 
+TRAIN: epoch: 1 - iteration: 18500 - acc: 0.489625006914 - loss: 2.76570415497 
+TRAIN: epoch: 1 - iteration: 19000 - acc: 0.490999996662 - loss: 2.77286291122 
+TRAIN: epoch: 1 - iteration: 19500 - acc: 0.485687494278 - loss: 2.76503515244 
+TRAIN: epoch: 1 - iteration: 20000 - acc: 0.490375012159 - loss: 2.7553935051 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_20000_1/lstmVALID: epoch: 1 - iteration: 20000 - acc: 0.444375008345 
+TRAIN: epoch: 1 - iteration: 20500 - acc: 0.485562503338 - loss: 2.74892711639 
+TRAIN: epoch: 1 - iteration: 21000 - acc: 0.492937505245 - loss: 2.74010181427 
+TRAIN: epoch: 1 - iteration: 21500 - acc: 0.496749997139 - loss: 2.70435714722 
+TRAIN: epoch: 1 - iteration: 22000 - acc: 0.497750014067 - loss: 2.69180011749 
+TRAIN: epoch: 1 - iteration: 22500 - acc: 0.496812492609 - loss: 2.70578813553 
+TRAIN: epoch: 1 - iteration: 23000 - acc: 0.500625014305 - loss: 2.68714594841 
+TRAIN: epoch: 1 - iteration: 23500 - acc: 0.504562497139 - loss: 2.66677498817 
+TRAIN: epoch: 1 - iteration: 24000 - acc: 0.505249977112 - loss: 2.68165564537 
+TRAIN: epoch: 1 - iteration: 24500 - acc: 0.500687479973 - loss: 2.64969658852 
+TRAIN: epoch: 1 - iteration: 25000 - acc: 0.506375014782 - loss: 2.65350270271 
+VALID: epoch: 1 - iteration: 25000 - acc: 0.431874990463 
+TRAIN: epoch: 1 - iteration: 25500 - acc: 0.50793749094 - loss: 2.62234377861 
+TRAIN: epoch: 1 - iteration: 26000 - acc: 0.50743752718 - loss: 2.63262867928 
+TRAIN: epoch: 1 - iteration: 26500 - acc: 0.511937499046 - loss: 2.60873103142 
+TRAIN: epoch: 1 - iteration: 27000 - acc: 0.502375006676 - loss: 2.59379887581 
+TRAIN: epoch: 1 - iteration: 27500 - acc: 0.50906252861 - loss: 2.62838459015 
+TRAIN: epoch: 1 - iteration: 28000 - acc: 0.507375001907 - loss: 2.60981535912 
+TRAIN: epoch: 1 - iteration: 28500 - acc: 0.506375014782 - loss: 2.64156746864 
+TRAIN: epoch: 1 - iteration: 29000 - acc: 0.509687483311 - loss: 2.60187244415 
+TRAIN: epoch: 1 - iteration: 29500 - acc: 0.512187480927 - loss: 2.59169912338 
+TRAIN: epoch: 1 - iteration: 30000 - acc: 0.509812474251 - loss: 2.61296510696 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_30000_1/lstmVALID: epoch: 1 - iteration: 30000 - acc: 0.447812497616 
+TRAIN: epoch: 1 - iteration: 30500 - acc: 0.511812508106 - loss: 2.57722783089 

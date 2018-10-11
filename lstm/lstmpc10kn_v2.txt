@@ -1,0 +1,1 @@
+TEST: epoch: 0 - iteration: 0 - acc: 0.00994211249053TEST: epoch: 0 - iteration: 10000 - acc: 0.124599963427TEST: epoch: 0 - iteration: 20000 - acc: 0.155144020915

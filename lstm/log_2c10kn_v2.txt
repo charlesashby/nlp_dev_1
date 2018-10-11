@@ -1,0 +1,49 @@
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.49955558777 
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.49627685547 
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.50092029572 
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.4979467392 
+TRAIN: epoch: 0 - iteration: 500 - acc: 0.0734999999404 - loss: 6.79277038574 
+TRAIN: epoch: 0 - iteration: 1000 - acc: 0.0708125010133 - loss: 7.4731593132 
+TRAIN: epoch: 0 - iteration: 1500 - acc: 0.090125001967 - loss: 8.3284034729 
+TRAIN: epoch: 0 - iteration: 2000 - acc: 0.126812502742 - loss: 6.00129079819 
+TRAIN: epoch: 0 - iteration: 2500 - acc: 0.146999999881 - loss: 5.75354671478 
+TRAIN: epoch: 0 - iteration: 3000 - acc: 0.170062497258 - loss: 5.55237722397 
+TRAIN: epoch: 0 - iteration: 3500 - acc: 0.192874997854 - loss: 5.36290311813 
+TRAIN: epoch: 0 - iteration: 4000 - acc: 0.201749995351 - loss: 5.23433494568 
+TRAIN: epoch: 0 - iteration: 4500 - acc: 0.215124994516 - loss: 5.14331769943 
+TRAIN: epoch: 0 - iteration: 5000 - acc: 0.229812502861 - loss: 5.03486156464 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm_1/lstmpc10kn8-4_5000_0/lstmVALID: epoch: 0 - iteration: 5000 - acc: 0.21250000596 
+TRAIN: epoch: 0 - iteration: 5500 - acc: 0.229187503457 - loss: 4.9528632164 
+TRAIN: epoch: 0 - iteration: 6000 - acc: 0.241874992847 - loss: 4.86061525345 
+TRAIN: epoch: 0 - iteration: 6500 - acc: 0.241562500596 - loss: 4.83120822906 
+TRAIN: epoch: 0 - iteration: 7000 - acc: 0.248500004411 - loss: 4.81302833557 
+TRAIN: epoch: 0 - iteration: 7500 - acc: 0.257562488317 - loss: 4.75985240936 
+TRAIN: epoch: 0 - iteration: 8000 - acc: 0.260437488556 - loss: 4.67597055435 
+TRAIN: epoch: 0 - iteration: 8500 - acc: 0.2734375 - loss: 4.63762187958 
+TRAIN: epoch: 0 - iteration: 9000 - acc: 0.27362498641 - loss: 4.62325191498 
+TRAIN: epoch: 0 - iteration: 9500 - acc: 0.275187492371 - loss: 4.5363535881 
+TRAIN: epoch: 0 - iteration: 10000 - acc: 0.282937496901 - loss: 4.55300188065 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm_1/lstmpc10kn8-4_10000_0/lstmVALID: epoch: 0 - iteration: 10000 - acc: 0.254375010729 
+TRAIN: epoch: 0 - iteration: 10500 - acc: 0.286562502384 - loss: 4.45352268219 
+TRAIN: epoch: 0 - iteration: 11000 - acc: 0.293062508106 - loss: 4.44373750687 
+TRAIN: epoch: 0 - iteration: 11500 - acc: 0.297500014305 - loss: 4.41885900497 
+TRAIN: epoch: 0 - iteration: 12000 - acc: 0.294312506914 - loss: 4.4069442749 
+TRAIN: epoch: 0 - iteration: 12500 - acc: 0.291687488556 - loss: 4.41987514496 
+TRAIN: epoch: 0 - iteration: 13000 - acc: 0.298687487841 - loss: 4.33722543716 
+TRAIN: epoch: 0 - iteration: 13500 - acc: 0.305500000715 - loss: 4.30463838577 
+TRAIN: epoch: 0 - iteration: 14000 - acc: 0.302500009537 - loss: 4.30114507675 
+TRAIN: epoch: 0 - iteration: 14500 - acc: 0.314312487841 - loss: 4.29051017761 
+TRAIN: epoch: 0 - iteration: 15000 - acc: 0.314687490463 - loss: 4.27839946747 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm_1/lstmpc10kn8-4_15000_0/lstmVALID: epoch: 0 - iteration: 15000 - acc: 0.295625001192 
+TRAIN: epoch: 0 - iteration: 15500 - acc: 0.307624995708 - loss: 4.29408311844 
+TRAIN: epoch: 0 - iteration: 16000 - acc: 0.317000001669 - loss: 4.27301931381 
+TRAIN: epoch: 0 - iteration: 16500 - acc: 0.313125014305 - loss: 4.28610372543 
+TRAIN: epoch: 0 - iteration: 17000 - acc: 0.314249992371 - loss: 4.27052927017 
+TRAIN: epoch: 0 - iteration: 17500 - acc: 0.325249999762 - loss: 4.16122293472 
+TRAIN: epoch: 0 - iteration: 18000 - acc: 0.325437486172 - loss: 4.16589164734 
+TRAIN: epoch: 0 - iteration: 18500 - acc: 0.333249986172 - loss: 4.12674856186 
+TRAIN: epoch: 0 - iteration: 19000 - acc: 0.326812505722 - loss: 4.15761423111 
+TRAIN: epoch: 0 - iteration: 19500 - acc: 0.330875009298 - loss: 4.1067276001 
+TRAIN: epoch: 0 - iteration: 20000 - acc: 0.335000008345 - loss: 4.06368589401 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm_1/lstmpc10kn8-4_20000_0/lstmVALID: epoch: 0 - iteration: 20000 - acc: 0.325937509537 
+TRAIN: epoch: 0 - iteration: 20500 - acc: 0.32962501049 - loss: 4.1084022522 

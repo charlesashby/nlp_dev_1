@@ -1,0 +1,12 @@
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.05325126648 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_0_0/lstmVALID: epoch: 0 - iteration: 0 - acc: 0.000937499979045 
+TRAIN: epoch: 0 - iteration: 500 - acc: 0.00106250005774 - loss: 6.74097776413 
+TRAIN: epoch: 0 - iteration: 1000 - acc: 0.0224374998361 - loss: 6.4079618454 
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.30864143372 
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.31303882599 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc8-4_0_0/lstmVALID: epoch: 0 - iteration: 0 - acc: 0.00218750000931 
+TRAIN: epoch: 0 - iteration: 500 - acc: 0.074249997735 - loss: 6.54351186752 
+TRAIN: epoch: 0 - iteration: 1000 - acc: 0.0756250023842 - loss: 6.31474924088 
+TRAIN: epoch: 0 - iteration: 1500 - acc: 0.0846249982715 - loss: 6.12628030777 
+TRAIN: epoch: 0 - iteration: 2000 - acc: 0.141437500715 - loss: 5.69504213333 
+TRAIN: epoch: 0 - iteration: 2500 - acc: 0.195749998093 - loss: 5.261677742 

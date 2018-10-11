@@ -178,3 +178,142 @@ TRAIN: iteration: 6000 - acc: 0.445874989033 - loss: 3.23183846474
 saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_0_0/lstmVALID: iteration: 0 - acc: 0.0528125017881 
 saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstm_0_0/lstmVALID: iteration: 0 - acc: 0.00437500001863 
 saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_0_0/lstmVALID: iteration: 0 - acc: 0.019687499851 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_0_0/lstmVALID: iteration: 0 - acc: 0.0437499992549 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_0_0/lstmVALID: iteration: 0 - acc: 0.0359374992549 
+VALID: iteration: 0 - acc: 0.0 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_0_0/lstmVALID: iteration: 0 - acc: 0.0453125014901 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_5000_0/lstmVALID: iteration: 5000 - acc: 0.29531249404 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_10000_0/lstmVALID: iteration: 10000 - acc: 0.340937495232 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_15000_0/lstmVALID: iteration: 15000 - acc: 0.379375010729 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_20000_0/lstmVALID: iteration: 20000 - acc: 0.389687508345 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_0_0/lstmVALID: iteration: 0 - acc: 0.395624995232 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_0_0/lstmVALID: iteration: 0 - acc: 0.00218750000931 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_5000_0/lstmVALID: iteration: 5000 - acc: 0.299062490463 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_10000_0/lstmVALID: iteration: 10000 - acc: 0.344687491655 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_15000_0/lstmVALID: iteration: 15000 - acc: 0.377187490463 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_20000_0/lstmVALID: iteration: 20000 - acc: 0.389375001192 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_25000_0/lstmVALID: iteration: 25000 - acc: 0.40468749404 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_30000_0/lstmVALID: iteration: 30000 - acc: 0.410937488079 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_35000_0/lstmVALID: iteration: 35000 - acc: 0.417812496424 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_0_1/lstmVALID: iteration: 0 - acc: 0.438125014305 
+VALID: iteration: 5000 - acc: 0.430000007153 
+VALID: iteration: 10000 - acc: 0.433437496424 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_15000_1/lstmVALID: iteration: 15000 - acc: 0.438749998808 
+VALID: iteration: 20000 - acc: 0.4375 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_25000_1/lstmVALID: iteration: 25000 - acc: 0.452812492847 
+VALID: iteration: 30000 - acc: 0.438125014305 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmp_35000_1/lstmVALID: iteration: 35000 - acc: 0.455000013113 
+VALID: iteration: 0 - acc: 0.454374998808 
+VALID: iteration: 5000 - acc: 0.436250001192 
+VALID: iteration: 10000 - acc: 0.435624986887 
+VALID: iteration: 15000 - acc: 0.450312495232 
+VALID: iteration: 20000 - acc: 0.442812502384 
+VALID: iteration: 25000 - acc: 0.453750014305 
+VALID: iteration: 30000 - acc: 0.436562508345 
+VALID: iteration: 35000 - acc: 0.444375008345 
+VALID: iteration: 0 - acc: 0.443437486887 
+VALID: iteration: 5000 - acc: 0.425312489271 
+VALID: iteration: 10000 - acc: 0.42343750596 
+VALID: iteration: 15000 - acc: 0.434374988079 
+VALID: iteration: 20000 - acc: 0.430937498808 
+VALID: iteration: 25000 - acc: 0.425624996424 
+VALID: iteration: 30000 - acc: 0.417812496424 
+VALID: iteration: 35000 - acc: 0.423124998808 
+VALID: iteration: 0 - acc: 0.426562488079 
+VALID: iteration: 5000 - acc: 0.411875009537 
+VALID: iteration: 10000 - acc: 0.41249999404 
+VALID: iteration: 15000 - acc: 0.42343750596 
+VALID: iteration: 20000 - acc: 0.414375007153 
+VALID: iteration: 25000 - acc: 0.414999991655 
+VALID: iteration: 30000 - acc: 0.416249990463 
+VALID: iteration: 35000 - acc: 0.405937492847 
+VALID: iteration: 0 - acc: 0.422187507153 
+VALID: iteration: 5000 - acc: 0.40000000596 
+VALID: iteration: 10000 - acc: 0.400624990463 
+VALID: iteration: 15000 - acc: 0.412187486887 
+VALID: iteration: 20000 - acc: 0.414375007153 
+VALID: iteration: 25000 - acc: 0.409062504768 
+VALID: iteration: 30000 - acc: 0.399687498808 
+VALID: iteration: 35000 - acc: 0.395624995232 
+VALID: iteration: 0 - acc: 0.401250004768 
+VALID: iteration: 5000 - acc: 0.404062509537 
+VALID: iteration: 10000 - acc: 0.396562486887 
+VALID: iteration: 15000 - acc: 0.398750007153 
+VALID: iteration: 20000 - acc: 0.408125013113 
+VALID: iteration: 25000 - acc: 0.395937502384 
+VALID: iteration: 30000 - acc: 0.403437495232 
+VALID: iteration: 35000 - acc: 0.403750002384 
+VALID: iteration: 0 - acc: 0.398750007153 
+VALID: iteration: 5000 - acc: 0.394687503576 
+VALID: iteration: 10000 - acc: 0.390312492847 
+VALID: iteration: 15000 - acc: 0.394062489271 
+VALID: iteration: 20000 - acc: 0.405000001192 
+VALID: iteration: 25000 - acc: 0.397187501192 
+VALID: iteration: 30000 - acc: 0.393124997616 
+VALID: iteration: 35000 - acc: 0.389999985695 
+VALID: iteration: 0 - acc: 0.392812490463 
+VALID: iteration: 5000 - acc: 0.393124997616 
+VALID: iteration: 10000 - acc: 0.386562496424 
+VALID: iteration: 15000 - acc: 0.403124988079 
+VALID: iteration: 20000 - acc: 0.40781250596 
+VALID: iteration: 25000 - acc: 0.396562486887 
+VALID: iteration: 30000 - acc: 0.391562491655 
+VALID: iteration: 35000 - acc: 0.389375001192 
+VALID: iteration: 0 - acc: 0.402812510729 
+VALID: iteration: 5000 - acc: 0.394374996424 
+VALID: iteration: 10000 - acc: 0.398750007153 
+VALID: iteration: 15000 - acc: 0.390625 
+VALID: iteration: 20000 - acc: 0.405624985695 
+VALID: iteration: 25000 - acc: 0.400624990463 
+VALID: iteration: 30000 - acc: 0.395937502384 
+VALID: iteration: 35000 - acc: 0.393437504768 
+VALID: iteration: 0 - acc: 0.399687498808 
+VALID: iteration: 5000 - acc: 0.392812490463 
+VALID: iteration: 10000 - acc: 0.384687513113 
+VALID: iteration: 15000 - acc: 0.395624995232 
+VALID: iteration: 20000 - acc: 0.397812485695 
+VALID: iteration: 25000 - acc: 0.403437495232 
+VALID: iteration: 30000 - acc: 0.393124997616 
+VALID: iteration: 35000 - acc: 0.387812495232 
+VALID: iteration: 0 - acc: 0.400624990463 
+VALID: iteration: 5000 - acc: 0.394062489271 
+VALID: iteration: 10000 - acc: 0.383749991655 
+VALID: iteration: 15000 - acc: 0.398124992847 
+VALID: iteration: 20000 - acc: 0.409375011921 
+VALID: iteration: 25000 - acc: 0.400624990463 
+VALID: iteration: 30000 - acc: 0.391562491655 
+VALID: iteration: 35000 - acc: 0.401562511921 
+VALID: iteration: 0 - acc: 0.396250009537 
+VALID: iteration: 5000 - acc: 0.395312488079 
+VALID: iteration: 10000 - acc: 0.389999985695 
+VALID: iteration: 15000 - acc: 0.390625 
+VALID: iteration: 20000 - acc: 0.40625 
+VALID: iteration: 25000 - acc: 0.395937502384 
+VALID: iteration: 30000 - acc: 0.390312492847 
+VALID: iteration: 35000 - acc: 0.397812485695 
+VALID: iteration: 0 - acc: 0.398124992847 
+VALID: iteration: 5000 - acc: 0.395624995232 
+VALID: iteration: 10000 - acc: 0.391874998808 
+VALID: iteration: 15000 - acc: 0.398124992847 
+VALID: iteration: 20000 - acc: 0.403124988079 
+VALID: iteration: 25000 - acc: 0.392500013113 
+VALID: iteration: 30000 - acc: 0.392812490463 
+VALID: iteration: 35000 - acc: 0.395624995232 
+VALID: iteration: 0 - acc: 0.395624995232 
+VALID: iteration: 5000 - acc: 0.402812510729 
+VALID: iteration: 10000 - acc: 0.37656250596 
+VALID: iteration: 15000 - acc: 0.399374991655 
+VALID: iteration: 20000 - acc: 0.40000000596 
+VALID: iteration: 25000 - acc: 0.391874998808 
+VALID: iteration: 30000 - acc: 0.392812490463 
+VALID: iteration: 35000 - acc: 0.402187496424 
+VALID: iteration: 0 - acc: 0.40468749404 
+VALID: iteration: 5000 - acc: 0.393750011921 
+VALID: iteration: 10000 - acc: 0.393437504768 
+VALID: iteration: 15000 - acc: 0.399062514305 
+VALID: iteration: 20000 - acc: 0.397500008345 
+VALID: iteration: 25000 - acc: 0.390937507153 
+VALID: iteration: 30000 - acc: 0.391250014305 
+VALID: iteration: 35000 - acc: 0.393750011921 
+VALID: iteration: 0 - acc: 0.393124997616 
+VALID: iteration: 5000 - acc: 0.401874989271 

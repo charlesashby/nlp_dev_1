@@ -21,7 +21,7 @@ axs.bar(bins, y)
 
 
 # Visualizing tokens distribution
-with open('tokens_dict.pickle', 'rb') as f:
+with open('clean_token_dict.pickle', 'rb') as f:
     tokens_dict = pickle.load(f)
 
 # Visualize tokens distribution
@@ -33,4 +33,4 @@ fig_t, axs_t = plt.subplots(1, tight_layout=True)
 axs_t.bar(bins, log_y)
 axs_t.set_xlabel("token")
 axs_t.set_ylabel("log(token occurences)")
-axs_t.set_title("Number of occurences (logarithm) of each token in our dictionary")
+axs_t.set_title("Number of occurences (logarithm) of each token in our cleaned dictionary")

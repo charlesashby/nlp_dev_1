@@ -14,6 +14,8 @@ from nltk.util import ngrams
 import collections
 
 data_path = '/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1'
+clean_raw_dataset = os.path.join(data_path, 'clean_raw_dataset.txt')
+
 train_file_name = os.path.join(data_path, 'en/train-europarl-v7.fi-en.en')
 # test_5 = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u5c.en')
 # test_10 = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u10c.en')
@@ -24,10 +26,10 @@ train_file_name = os.path.join(data_path, 'en/train-europarl-v7.fi-en.en')
 # Benchmark
 def get_tokens_dict():
     word_counts = {}
-    with open(train_file_name, 'r') as f:
+    with open(clean_raw_dataset, 'r') as f:
         lines = f.readlines()
         for i, line in enumerate(lines):
-            if i % 1000 == 0:
+            if i % 10000 == 0:
                 print('tokenizing line: {}/1000000'.format(i))
             tokens = line.split(' ')
             for token in tokens:

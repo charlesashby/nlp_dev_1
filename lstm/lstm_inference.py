@@ -27,6 +27,31 @@ word2vec_dir = '/home/ashbylepoc/tmp/word2vec/'
 SAVE_PATH = data_path + 'checkpoints/lstm_1'
 
 
+def compute_unknown_test_set(file):
+    for perc_unk in [5, 10, 20, 30, 40]:
+        test_file = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u{}.en'.format(perc_unk))
+        structured_unks = structure_file(test_file, suf=4, pre=8, clean=True)
+        # Remove sentences with unks...
+        # structured_unks = clean_structured_unks(structured_unks)
+        n_batch = len(structured_unks) / batch_size
+        total = 0
+        unknowns = 0
+        for i in range(n_batch):
+            bb_x = []
+            yy = []
+            for unk in structured_unks[i * batch_size: (i + 1) * batch_size]:
+                bb_x.append(unk[0])
+                yy.append(unk[1])
+
+            for j, line in enumerate(bb_x):
+                y_pos = get_token_dict_pos(token_dict, yy[j])
+                total += 1
+                if y_pos == -2:
+                    unknowns += 1
+        print('{}/{}: {}'.format(unknowns, total, test_file))
+
+
+
 
 
 if __name__ == '__main__':
