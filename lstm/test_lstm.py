@@ -92,7 +92,7 @@ def structure_file(file, suf=3, pre=5, clean=False):
         tokens = tokenize_sentence(cleaned_line)
         n_tokens = len(tokens)
         for i, token in enumerate(tokens):
-            if 'unk w="' in token:
+            if '<unk w="' in token:
                 end = min(n_tokens, i + suf)
                 start = max(0, i - pre)
                 history = tokens[start:end + 1]
@@ -128,7 +128,7 @@ def clean_structured_unks(structured_unks):
 
 def test_file(sess, perc_unk=10):
     test_file = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u{}.en'.format(perc_unk))
-    structured_unks = structure_file(test_file, suf=4, pre=8, clean=True)
+    structured_unks = structure_file(test_file, suf=3, pre=5, clean=True)
     # Remove sentences with unks...
     # structured_unks = clean_structured_unks(structured_unks)
     n_batch = len(structured_unks) / batch_size
@@ -152,12 +152,12 @@ def test_file(sess, perc_unk=10):
                     x_pos = get_token_dict_pos(token_dict, token)
                 b_x[j][k][x_pos] = 1.
 
-            # data_reader = DataReader(shuffled_p_train_set, shuffled_p_valid_set, 4, tokens_dict, 100, 10000)
+        # data_reader = DataReader(shuffled_p_train_set, shuffled_p_valid_set, 4, tokens_dict, 100, 10000)
 
-            # it = enumerate(data_reader.iterate_mini_batch(32, dataset='valid', pre=pre, suf=suf))
-            # ii, (bb_x, bb_y) = next(it)
-            preds_, acc_ = sess.run([preds, acc], feed_dict={x: b_x, y: b_y})
-            all_acc.append(acc_)
+        # it = enumerate(data_reader.iterate_mini_batch(32, dataset='valid', pre=pre, suf=suf))
+        # ii, (bb_x, bb_y) = next(it)
+        preds_, acc_ = sess.run([preds, acc], feed_dict={x: b_x, y: b_y})
+        all_acc.append(acc_)
     print('Acc: {} file: {}'.format(np.mean(all_acc), test_file))
     return np.mean(all_acc)
 
@@ -179,7 +179,7 @@ def get_token_dict_pos(token_dict, token):
 if __name__ == '__main__':
     # with open('tokens_dict.pickle', 'rb') as f:
     #     tokens_dict = pickle.load(f)
-    with open('clean_token_dict.pickle', 'rb') as f:
+    with open('tokens_dict.pickle', 'rb') as f:
         tokens_dict = pickle.load(f)
 
     print('building graph')
