@@ -247,10 +247,10 @@ if __name__ == '__main__':
                             x_pos = get_token_dict_pos(token_dict, token)
                         b_x[j][k][x_pos] = 1.
 
-                    # data_reader = DataReader(shuffled_p_train_set, shuffled_p_valid_set, 4, tokens_dict, 100, 10000)
+                # data_reader = DataReader(shuffled_p_train_set, shuffled_p_valid_set, 4, tokens_dict, 100, 10000)
 
-                    # it = enumerate(data_reader.iterate_mini_batch(32, dataset='valid', pre=pre, suf=suf))
-                    # ii, (bb_x, bb_y) = next(it)
-                    preds_, acc_ = sess.run([preds, acc], feed_dict={x: b_x, y: b_y})
-                    all_acc.append(acc_)
+                # it = enumerate(data_reader.iterate_mini_batch(32, dataset='valid', pre=pre, suf=suf))
+                # ii, (bb_x, bb_y) = next(it)
+                preds_, acc_ = sess.run([preds, acc], feed_dict={x: b_x, y: b_y})
+                all_acc.append(acc_)
             print('Acc: {} file: {}'.format(np.mean(all_acc), test_file))
