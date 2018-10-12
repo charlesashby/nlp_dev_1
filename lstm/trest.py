@@ -4,13 +4,15 @@ from lstm.test_lstm import *
 from tensorflow.contrib import rnn
 
 data_path = "/run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/"
-SAVE_PATH = data_path + 'checkpoints_hist_lstm'
+SAVE_PATH = data_path + 'checkpoints_hist_lstm_1'
 shuffled_p_train_set = os.path.join(data_path, 'en/trainp_en_shuffled.csv')
 shuffled_p_valid_set = os.path.join(data_path, 'en/validp_en_shuffled.csv')
 shuffled_p8_4_train_set = os.path.join(data_path, 'en/trainp8-4_en_shuffled.csv')
 shuffled_p8_4_valid_set = os.path.join(data_path, 'en/validp8-4_en_shuffled.csv')
 shuffled_pc8_4_train_set = os.path.join(data_path, 'en/trainpc8-4_en_shuffled.csv')
 shuffled_pc8_4_valid_set = os.path.join(data_path, 'en/validpc8-4_en_shuffled.csv')
+shuffled_pc12_6_train_set = os.path.join(data_path, 'en/trainpc12-6_en_shuffled.csv')
+shuffled_pc12_6_valid_set = os.path.join(data_path, 'en/validpc12-6_en_shuffled.csv')
 
 
 with open('tokens_dict.pickle', 'rb') as f:
@@ -51,7 +53,7 @@ pre = 5
 suf = 3
 
 sess = tf.Session()
-saver.restore(sess, '{}/lstmp_{}_{}/lstm'.format(SAVE_PATH, 35000, 1))
+saver.restore(sess, '{}/lstmpc10kn12-6_{}_{}/lstm'.format(SAVE_PATH, 35000, 3))
 
 m = 5
 test_file = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u{}.en'.format(m))

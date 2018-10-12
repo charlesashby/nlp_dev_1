@@ -4,7 +4,6 @@ import tensorflow as tf
 from tensorflow.contrib import rnn
 import sys, random
 import unicodedata
-from test_lstm import *
 
 csv.field_size_limit(sys.maxsize)
 
@@ -20,6 +19,8 @@ shuffled_p8_4_train_set = os.path.join(data_path, 'en/trainp8-4_en_shuffled.csv'
 shuffled_p8_4_valid_set = os.path.join(data_path, 'en/validp8-4_en_shuffled.csv')
 shuffled_pc8_4_train_set = os.path.join(data_path, 'en/trainpc8-4_en_shuffled.csv')
 shuffled_pc8_4_valid_set = os.path.join(data_path, 'en/validpc8-4_en_shuffled.csv')
+shuffled_pc12_6_train_set = os.path.join(data_path, 'en/trainpc12-6_en_shuffled.csv')
+shuffled_pc12_6_valid_set = os.path.join(data_path, 'en/validpc12-6_en_shuffled.csv')
 word2vec_dir = '/home/ashbylepoc/tmp/word2vec/'
 clean_dataset = os.path.join(data_path, 'clean_dataset.csv')
 clean_dataset_padded_5_3 = os.path.join(data_path, 'clean_dataset_padded.csv')
@@ -27,9 +28,11 @@ clean_dataset_padded_8_4 = os.path.join(data_path, 'clean_dataset_padded8-4.csv'
 cleanv2_dataset_padded_8_4 = os.path.join(data_path, 'cleanv2_dataset_padded8-4.csv')
 clean_raw_dataset = os.path.join(data_path, 'clean_raw_dataset.txt')
 rare_tokens_dataset = os.path.join(data_path, 'rare_tokens5000.csv')
-
-
-SAVE_PATH = data_path + 'checkpoints_hist_lstm_1'
+cleanv2_dataset_padded_12_6 = os.path.join(data_path, 'cleanv2_dataset_padded12-6.csv')
+cleanv2_dataset_padded_5_3 = os.path.join(data_path, 'cleanv2_dataset_padded5-3.csv')
+shuffled_pc5_3_train_set = os.path.join(data_path, 'en/trainpc5-3_en_shuffled.csv')
+shuffled_pc5_3_valid_set = os.path.join(data_path, 'en/validpc5-3_en_shuffled.csv')
+SAVE_PATH = data_path + 'checkpoints_hist_lstm'
 
 
 # Save paths important:
@@ -135,7 +138,7 @@ def build_dataset(n_pad=10):
 
 def build_dataset_clean(pre=8, suf=4):
     lines = open(clean_raw_dataset, 'r').readlines()
-    with open(cleanv2_dataset_padded_8_4, 'a') as f:
+    with open(cleanv2_dataset_padded_5_3, 'a') as f:
         writer = csv.writer(f)
         for j, line in enumerate(lines):
             if j % 10000 == 0:
@@ -174,12 +177,12 @@ def read_lines(reader, n_lines):
 
 def shuffle_dataset():
     # total n lines: 28,465,585
-    reader = csv.reader(open(cleanv2_dataset_padded_8_4, 'r'))
+    reader = csv.reader(open(cleanv2_dataset_padded_5_3, 'r'))
     for i in range(1):
         print('working on {}'.format(i))
         lines, reader = read_lines(reader, 200000)
         np.random.shuffle(lines)
-        with open(shuffled_pc8_4_valid_set, 'a') as f:
+        with open(shuffled_pc5_3_valid_set, 'a') as f:
             writer = csv.writer(f)
             for row in lines:
                 writer.writerow(row)
@@ -302,8 +305,7 @@ class DataReader(object):
                 pass
         return mini_batch_x, mini_batch_y
 
-
-    def mb_predict_middle_sentence(self, lines, batch_size, pre=8, suf=4):
+    def mb_predict_middle_sentence(self, lines, batch_size, pre=5, suf=3):
         n_lines = len(lines)
         act_batch_size = 0
         mini_batch_x = np.zeros(shape=[batch_size,
@@ -342,11 +344,11 @@ class DataReader(object):
                 pass
 
         # Add noise in the inputs
-        rns = sample_noise(pre, suf, 0.2, batch_size)
-        for i, mb in enumerate(mini_batch_x):
-            if rns[i]:
-                mini_batch_x[i, rns[i], :] = 0.
-                mini_batch_x[i, rns[i], -2] = 1.
+        # rns = sample_noise(pre, suf, 0.2, batch_size)
+        # for i, mb in enumerate(mini_batch_x):
+        #     if rns[i]:
+        #         mini_batch_x[i, rns[i], :] = 0.
+        #         mini_batch_x[i, rns[i], -2] = 1.
 
         return mini_batch_x, mini_batch_y
 
@@ -361,13 +363,13 @@ class DataReader(object):
         else:
             return False
 
-    def iterate_mini_batch(self, batch_size, pre=5, suf=4, dataset='train'):
+    def iterate_mini_batch(self, batch_size, pre=5, suf=3, dataset='train'):
         if dataset == 'train':
-            n_batch = int(2800000 / (batch_size * 2))
+            n_batch = int(2800000 / (batch_size * 1.2))
             for i in range(n_batch):
                 # We load twice the number of lines we need to make sure there are no
                 # "unknown" y's (since we reduced the size of the word dict
-                if self.load_to_ram(batch_size * 2, self.reader_train):
+                if self.load_to_ram(int(batch_size * 1.2), self.reader_train):
                     # inputs, targets = self.make_mini_batch_train(self.data, batch_size)
                     inputs, targets = self.mb_predict_middle_sentence(self.data, batch_size, pre, suf)
 
@@ -379,46 +381,11 @@ class DataReader(object):
                 # print('valid: {}'.format(i))
                 # We load twice the number of lines we need to make sure there are no
                 # "unknown" y's (since we reduced the size of the word dict
-                if self.load_to_ram(batch_size * 2, self.reader_valid):
+                if self.load_to_ram(int(batch_size * 1.2), self.reader_valid):
                     inputs, targets = self.mb_predict_middle_sentence(self.data, batch_size, pre, suf)
                     # inputs, targets = self.make_mini_batch_train(self.data, batch_size)
                     yield inputs, targets
 
-
-def test_file(sess, token_dict, perc_unk=10, log_file='lstmpc10kn_v2.txt'):
-    test_file = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u{}.en'.format(perc_unk))
-    structured_unks = structure_file(test_file, suf=4, pre=8, clean=True)
-    # Remove sentences with unks...
-    # structured_unks = clean_structured_unks(structured_unks)
-    n_batch = len(structured_unks) / batch_size
-    all_acc = []
-    for i in range(n_batch):
-        bb_x = []
-        yy = []
-        for unk in structured_unks[i * batch_size: (i + 1) * batch_size]:
-            bb_x.append(unk[0])
-            yy.append(unk[1])
-
-        b_x = np.zeros(shape=[batch_size, pre + suf + 1, 10003])
-        b_y = np.zeros(shape=[batch_size, 10003])
-        for j, line in enumerate(bb_x):
-            y_pos = get_token_dict_pos(token_dict, yy[j])
-            b_y[j][y_pos] = 1.
-            for k, token in enumerate(line):
-                if '<unk w=' in token:
-                    x_pos = -2
-                else:
-                    x_pos = get_token_dict_pos(token_dict, token)
-                b_x[j][k][x_pos] = 1.
-
-        # data_reader = DataReader(shuffled_p_train_set, shuffled_p_valid_set, 4, tokens_dict, 100, 10000)
-
-        # it = enumerate(data_reader.iterate_mini_batch(32, dataset='valid', pre=pre, suf=suf))
-        # ii, (bb_x, bb_y) = next(it)
-        preds_, acc_ = sess.run([preds, acc], feed_dict={x: b_x, y: b_y})
-        all_acc.append(acc_)
-    print('Acc: {} file: {}'.format(np.mean(all_acc), test_file))
-    return np.mean(all_acc)
 
 if __name__ == '__main__':
     # from lstm.lstm_1 import *
@@ -435,8 +402,8 @@ if __name__ == '__main__':
     max_n_token_sentence = 100
     max_n_token_dict = 10000 + 3
     learning_rate = 0.001
-    pre=8
-    suf=4
+    pre=5
+    suf=3
     # data_reader = DataReader(shuffled_train_set, shuffled_valid_set,
     #                          7, tokens_dict, 7, 10000)
     # tt = data_reader.iterate_mini_batch(batch_size)
@@ -472,8 +439,8 @@ if __name__ == '__main__':
 
         sess.run(tf.global_variables_initializer())
         # saver.restore(sess, '{}/lstmp_{}_{}/lstm'.format(SAVE_PATH, 20000, 0))
-        for epoch in range(100):
-            data_reader = DataReader(shuffled_pc8_4_train_set, shuffled_pc8_4_valid_set,
+        for epoch in range(10):
+            data_reader = DataReader(shuffled_pc5_3_train_set, shuffled_pc5_3_valid_set,
                                      7, tokens_dict, 7, 10000)
             # print('ok')
             train_acc = []
@@ -492,7 +459,7 @@ if __name__ == '__main__':
                     print(np.argmax(preds_, axis=1))
                     print(np.argmax(b_y, axis=1))
                     print('TRAIN: epoch: {} - iteration: {} - acc: {} - loss: {}'.format(epoch, i, np.mean(train_acc), np.mean(train_cost)))
-                    with open('log_2c10kn_v2.txt', 'a') as f:
+                    with open('log_5-3c10k.txt', 'a') as f:
                         f.write('TRAIN: epoch: {} - iteration: {} - acc: {} - loss: {} \n'.format(epoch, i, np.mean(train_acc), np.mean(train_cost)))
                     train_acc = []
                     train_cost = []
@@ -510,39 +477,13 @@ if __name__ == '__main__':
                     mean_acc = np.mean(valid_acc)
                     if mean_acc > best_acc:
                         best_acc = mean_acc
-                        os.mkdir('{}/lstmpc10kn8-4_{}_{}'.format(SAVE_PATH, i, epoch))
-                        save_path = saver.save(sess, '{}/lstmpc10kn8-4_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
-                        with open('log_2c10kn_v2.txt', 'a') as f:
-                            f.write('saving model: {}/lstmpc10kn8-4_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
-                            print('saving model: {}/lstmpc10kn8-4_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
+                        os.mkdir('{}/lstmpc10k5-3_{}_{}'.format(SAVE_PATH, i, epoch))
+                        save_path = saver.save(sess, '{}/lstmpc10k5-3_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
+                        with open('log_5-3c10k.txt', 'a') as f:
+                            f.write('saving model: {}/lstmpc10k5-3_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
+                            print('saving model: {}/lstmpc10k5-3_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
                     print(np.argmax(preds__, axis=1))
                     print(np.argmax(bb_y, axis=1))
                     print('VALID: epoch: {} - iteration: {} - acc: {} -- last_pred:'.format(epoch, i, mean_acc))
-                    with open('log_2c10kn_v2.txt', 'a') as f:
+                    with open('log_5-3c10k.txt', 'a') as f:
                         f.write('VALID: epoch: {} - iteration: {} - acc: {} \n'.format(epoch, i, mean_acc))
-
-                if i % 10000 == 0 and i != 0:
-                    test_acc = test_file(sess, token_dict, perc_unk=10)
-                    with open('lstmpc10kn_v2.txt', 'a') as f:
-                        f.write('TEST: epoch: {} - iteration: {} - acc: {}'.format(epoch, i, test_acc))
-
-    """
-        with tf.Session() as sess:
-        # saver.restore(sess, SAVE_PATH)
-        sess.run(tf.global_variables_initializer())
-        for i in range(1000):
-            _, c, a, predictions_ = sess.run([optimizer, cost, acc, predictions],
-                               feed_dict={x: t[0], y: t[1]})
-            print('acc: {} - cost: {}'.format(a, c))
-    
-    
-    # Compute percentage unknown in a minibatch depending on the batch size
-    
-    for i in [6000, 7000, 8000, 9000, 10000, 15000, 20000, 30000]:
-        data_reader = DataReader(shuffled_train_set, shuffled_valid_set,
-                                 10, tokens_dict, 4, i)
-        tt = data_reader.iterate_mini_batch(batch_size)
-        t = next(tt)
-        print(data_reader.compute_perc_unknown(t[0]))
-    """
-

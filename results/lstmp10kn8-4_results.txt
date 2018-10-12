@@ -8,3 +8,13 @@ TEST: Acc: 0.391942769289 - percentage truncated: 10 - contiguous words: False
 TEST: Acc: 0.407598912716 - percentage truncated: 20 - contiguous words: False
 TEST: Acc: 0.365674078465 - percentage truncated: 30 - contiguous words: False
 TEST: Acc: 0.372758448124 - percentage truncated: 40 - contiguous words: False
+TEST: Acc: 0.396716088057 - Top 3 Acc: 0.538665235043 - percentage truncated: 5 - contiguous words: True
+TEST: Acc: 0.365384608507 - Top 3 Acc: 0.509958803654 - percentage truncated: 10 - contiguous words: True
+TEST: Acc: 0.34222561121 - Top 3 Acc: 0.488376528025 - percentage truncated: 20 - contiguous words: True
+TEST: Acc: 0.306405603886 - Top 3 Acc: 0.441779047251 - percentage truncated: 30 - contiguous words: True
+TEST: Acc: 0.27699303627 - Top 3 Acc: 0.409539461136 - percentage truncated: 40 - contiguous words: True
+TEST: Acc: 0.378409087658 - Top 3 Acc: 0.523295462132 - percentage truncated: 5 - contiguous words: False
+TEST: Acc: 0.391942769289 - Top 3 Acc: 0.533885538578 - percentage truncated: 10 - contiguous words: False
+TEST: Acc: 0.407598912716 - Top 3 Acc: 0.540692448616 - percentage truncated: 20 - contiguous words: False
+TEST: Acc: 0.365674078465 - Top 3 Acc: 0.518488228321 - percentage truncated: 30 - contiguous words: False
+TEST: Acc: 0.372758448124 - Top 3 Acc: 0.519646644592 - percentage truncated: 40 - contiguous words: False

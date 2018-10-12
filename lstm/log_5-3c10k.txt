@@ -1,0 +1,53 @@
+TRAIN: epoch: 0 - iteration: 0 - acc: 0.0 - loss: 9.21001243591 
+TRAIN: epoch: 0 - iteration: 500 - acc: 0.0734999999404 - loss: 6.73626756668 
+TRAIN: epoch: 0 - iteration: 1000 - acc: 0.0944999977946 - loss: 6.31425285339 
+TRAIN: epoch: 0 - iteration: 1500 - acc: 0.137437492609 - loss: 5.88290691376 
+TRAIN: epoch: 0 - iteration: 2000 - acc: 0.18275000155 - loss: 5.48405361176 
+TRAIN: epoch: 0 - iteration: 2500 - acc: 0.211187496781 - loss: 5.22918462753 
+TRAIN: epoch: 0 - iteration: 3000 - acc: 0.226750001311 - loss: 5.03398418427 
+TRAIN: epoch: 0 - iteration: 3500 - acc: 0.239687502384 - loss: 4.91906118393 
+TRAIN: epoch: 0 - iteration: 4000 - acc: 0.257312506437 - loss: 4.74925327301 
+TRAIN: epoch: 0 - iteration: 4500 - acc: 0.266375005245 - loss: 4.70942926407 
+TRAIN: epoch: 0 - iteration: 5000 - acc: 0.279062509537 - loss: 4.56405353546 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc10k5-3_5000_0/lstmVALID: epoch: 0 - iteration: 5000 - acc: 0.259999990463 
+TRAIN: epoch: 0 - iteration: 5500 - acc: 0.283812493086 - loss: 4.53225469589 
+TRAIN: epoch: 0 - iteration: 6000 - acc: 0.299874991179 - loss: 4.39929866791 
+TRAIN: epoch: 0 - iteration: 6500 - acc: 0.301625013351 - loss: 4.41233778 
+TRAIN: epoch: 0 - iteration: 7000 - acc: 0.299750000238 - loss: 4.38729715347 
+TRAIN: epoch: 0 - iteration: 7500 - acc: 0.316500008106 - loss: 4.26930189133 
+TRAIN: epoch: 0 - iteration: 8000 - acc: 0.326437503099 - loss: 4.19230556488 
+TRAIN: epoch: 0 - iteration: 8500 - acc: 0.328500002623 - loss: 4.15124511719 
+TRAIN: epoch: 0 - iteration: 9000 - acc: 0.333062499762 - loss: 4.12907505035 
+TRAIN: epoch: 0 - iteration: 9500 - acc: 0.339374989271 - loss: 4.08585166931 
+TRAIN: epoch: 0 - iteration: 10000 - acc: 0.348625004292 - loss: 4.02588367462 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc10k5-3_10000_0/lstmVALID: epoch: 0 - iteration: 10000 - acc: 0.323437511921 
+TRAIN: epoch: 0 - iteration: 10500 - acc: 0.345437496901 - loss: 4.0243768692 
+TRAIN: epoch: 0 - iteration: 11000 - acc: 0.345687508583 - loss: 4.00243473053 
+TRAIN: epoch: 0 - iteration: 11500 - acc: 0.352937489748 - loss: 3.97342133522 
+TRAIN: epoch: 0 - iteration: 12000 - acc: 0.362875014544 - loss: 3.88565325737 
+TRAIN: epoch: 0 - iteration: 12500 - acc: 0.358500003815 - loss: 3.91901564598 
+TRAIN: epoch: 0 - iteration: 13000 - acc: 0.364125013351 - loss: 3.8918159008 
+TRAIN: epoch: 0 - iteration: 13500 - acc: 0.371437489986 - loss: 3.79097175598 
+TRAIN: epoch: 0 - iteration: 14000 - acc: 0.370187491179 - loss: 3.80551123619 
+TRAIN: epoch: 0 - iteration: 14500 - acc: 0.376062512398 - loss: 3.77078866959 
+TRAIN: epoch: 0 - iteration: 15000 - acc: 0.376312494278 - loss: 3.77845191956 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc10k5-3_15000_0/lstmVALID: epoch: 0 - iteration: 15000 - acc: 0.366562485695 
+TRAIN: epoch: 0 - iteration: 15500 - acc: 0.384124994278 - loss: 3.73104500771 
+TRAIN: epoch: 0 - iteration: 16000 - acc: 0.377750009298 - loss: 3.76331043243 
+TRAIN: epoch: 0 - iteration: 16500 - acc: 0.383812487125 - loss: 3.71577739716 
+TRAIN: epoch: 0 - iteration: 17000 - acc: 0.380312502384 - loss: 3.71947312355 
+TRAIN: epoch: 0 - iteration: 17500 - acc: 0.387687504292 - loss: 3.67406344414 
+TRAIN: epoch: 0 - iteration: 18000 - acc: 0.397374987602 - loss: 3.65731501579 
+TRAIN: epoch: 0 - iteration: 18500 - acc: 0.391062498093 - loss: 3.63551568985 
+TRAIN: epoch: 0 - iteration: 19000 - acc: 0.395999997854 - loss: 3.59991836548 
+TRAIN: epoch: 0 - iteration: 19500 - acc: 0.396250009537 - loss: 3.59345316887 
+TRAIN: epoch: 0 - iteration: 20000 - acc: 0.397000014782 - loss: 3.59582901001 
+saving model: /run/media/ashbylepoc/ff112aea-f91a-4fc7-a80b-4f8fa50d41f3/tmp/data/nlp_dev_1/checkpoints_hist_lstm/lstmpc10k5-3_20000_0/lstmVALID: epoch: 0 - iteration: 20000 - acc: 0.369687497616 
+TRAIN: epoch: 0 - iteration: 20500 - acc: 0.400937497616 - loss: 3.57801103592 
+TRAIN: epoch: 0 - iteration: 21000 - acc: 0.405250012875 - loss: 3.53753614426 
+TRAIN: epoch: 0 - iteration: 21500 - acc: 0.407562494278 - loss: 3.54376220703 
+TRAIN: epoch: 0 - iteration: 22000 - acc: 0.404374986887 - loss: 3.53127884865 
+TRAIN: epoch: 0 - iteration: 22500 - acc: 0.405750006437 - loss: 3.48822832108 
+TRAIN: epoch: 0 - iteration: 23000 - acc: 0.402000010014 - loss: 3.53722572327 
+TRAIN: epoch: 0 - iteration: 23500 - acc: 0.40474998951 - loss: 3.53640174866 
+TRAIN: epoch: 0 - iteration: 24000 - acc: 0.412999987602 - loss: 3.46477794647 
