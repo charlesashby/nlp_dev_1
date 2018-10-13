@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="305bdbd4-de89-4be2-be43-6c83becf052a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/lstm/log_5-3c10k.txt" afterPath="$PROJECT_DIR$/lstm/log_5-3c10k.txt" />
+      <change beforePath="$PROJECT_DIR$/lstm/lstm_inference_test_set.py" afterPath="$PROJECT_DIR$/lstm/lstm_inference_test_set.py" />
+      <change beforePath="$PROJECT_DIR$/results/lstmp10k5-3_results.txt" afterPath="$PROJECT_DIR$/results/lstmp10k5-3_results.txt" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,18 +20,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="lstm_1.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lstm/lstm_1.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7542">
-              <caret line="424" column="33" lean-forward="false" selection-start-line="424" selection-start-column="33" selection-end-line="424" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#18#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="lstmp10k5-3_results.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/results/lstmp10k5-3_results.txt">
           <provider selected="true" editor-type-id="text-editor">
@@ -42,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/results/lstmp8-4_results.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -61,11 +53,31 @@
       <file leaf-file-name="lstm_inference_test_set.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lstm/lstm_inference_test_set.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="564">
-              <caret line="119" column="58" lean-forward="false" selection-start-line="119" selection-start-column="58" selection-end-line="119" selection-end-column="58" />
+            <state relative-caret-position="198">
+              <caret line="56" column="2" lean-forward="false" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="log_5-3c10k.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lstm/log_5-3c10k.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="444">
+              <caret line="317" column="55" lean-forward="false" selection-start-line="317" selection-start-column="41" selection-end-line="317" selection-end-column="55" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -74,7 +86,7 @@
         <entry file="file://$PROJECT_DIR$/results/lstmp10kn8-4_results.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -94,21 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="log_12-6c10kn_v2.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/lstm/log_12-6c10kn_v2.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6588">
-              <caret line="366" column="57" lean-forward="false" selection-start-line="366" selection-start-column="57" selection-end-line="366" selection-end-column="57" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="lstmp10kn12-6_results.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/results/lstmp10kn12-6_results.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="72">
-              <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="25" />
+              <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -175,8 +177,10 @@
         <option value="$PROJECT_DIR$/lstm/log_12-6c10kn_v2.txt" />
         <option value="$PROJECT_DIR$/lstm/trest.py" />
         <option value="$PROJECT_DIR$/results/lstmp10kn12-6_results.txt" />
-        <option value="$PROJECT_DIR$/lstm/lstm_inference_test_set.py" />
         <option value="$PROJECT_DIR$/lstm/lstm_1.py" />
+        <option value="$PROJECT_DIR$/lstm/log_5-3c10k.txt" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/lstm/lstm_inference_test_set.py" />
       </list>
     </option>
   </component>
@@ -386,7 +390,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33371428" sideWeight="0.5121308" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.424" sideWeight="0.4878692" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.424" sideWeight="0.4878692" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32914287" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -439,8 +443,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/lib/python2.7/site-packages/matplotlib/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/Kneser_Ney_Ngram/kn.train" />
     <entry file="file://$PROJECT_DIR$/Kneser_Ney_Ngram/kn.out" />
     <entry file="file://$PROJECT_DIR$/Kneser_Ney_Ngram/README" />
     <entry file="file://$PROJECT_DIR$/berkeleylm-1.1.5/README.txt" />
@@ -621,6 +623,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -700,7 +703,7 @@
         <state relative-caret-position="7542">
           <caret line="424" column="33" lean-forward="false" selection-start-line="424" selection-start-column="33" selection-end-line="424" selection-end-column="33" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#0#18#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -726,7 +729,7 @@
     <entry file="file://$PROJECT_DIR$/results/lstmp10kn12-6_results.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
-          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="25" />
+          <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="25" />
           <folding />
         </state>
       </provider>
@@ -734,7 +737,7 @@
     <entry file="file://$PROJECT_DIR$/results/lstmp10kn8-4_results.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -742,7 +745,7 @@
     <entry file="file://$PROJECT_DIR$/results/lstmp8-4_results.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -755,10 +758,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lstm/log_5-3c10k.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="444">
+          <caret line="317" column="55" lean-forward="false" selection-start-line="317" selection-start-column="41" selection-end-line="317" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="5" lean-forward="false" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lstm/lstm_inference_test_set.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="564">
-          <caret line="119" column="58" lean-forward="false" selection-start-line="119" selection-start-column="58" selection-end-line="119" selection-end-column="58" />
+        <state relative-caret-position="198">
+          <caret line="56" column="2" lean-forward="false" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

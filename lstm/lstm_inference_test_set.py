@@ -44,7 +44,17 @@ SAVE_PATH = os.path.join(data_path, 'checkpoints_hist_lstm')
 # Acc: 0.328534036875 - Top 3 Acc: 0.456806272268 - percentage truncated: 30 - contiguous words: False
 # Acc: 0.324498951435 - Top 3 Acc: 0.456882923841 - percentage truncated: 40 - contiguous words: False
 
-
+# Accuracies lstmpc10k5-3 1024 rnn size checkpoint: {}/lstmpc10k5-3_65000_1
+# Acc: 0.406779646873 - Top 3 Acc: 0.54290252924 - percentage truncated: 5 - contiguous words: True
+# Acc: 0.364010989666 - Top 3 Acc: 0.511332392693 - percentage truncated: 10 - contiguous words: True
+# Acc: 0.328887194395 - Top 3 Acc: 0.456554889679 - percentage truncated: 20 - contiguous words: True
+# Acc: 0.277100622654 - Top 3 Acc: 0.403397291899 - percentage truncated: 30 - contiguous words: True
+# Acc: 0.233165636659 - Top 3 Acc: 0.354876160622 - percentage truncated: 40 - contiguous words: True
+# Acc: 0.407386362553 - Top 3 Acc: 0.551136374474 - percentage truncated: 5 - contiguous words: False
+# Acc: 0.417168676853 - Top 3 Acc: 0.551581323147 - percentage truncated: 10 - contiguous words: False
+# Acc: 0.412769794464 - Top 3 Acc: 0.558228433132 - percentage truncated: 20 - contiguous words: False
+# Acc: 0.373691111803 - Top 3 Acc: 0.524869084358 - percentage truncated: 30 - contiguous words: False
+# Acc: 0.366693049669 - Top 3 Acc: 0.509493649006 - percentage truncated: 40 - contiguous words: False
 
 def iterate_test_batch(token_dict, perc_unk=10, c=False, batch_size=32,
                        pre=12, suf=6, output_size=10000, clean=True):
@@ -78,7 +88,7 @@ def iterate_test_batch(token_dict, perc_unk=10, c=False, batch_size=32,
 
 
 if __name__ == '__main__':
-    with open('tokens_dict.pickle', 'rb') as f:
+    with open('clean_token_dict.pickle', 'rb') as f:
         tokens_dict = pickle.load(f)
     sorted_tokens = sorted(tokens_dict.items(), key=lambda item: item[1])
     token_dict = [t[0] for t in sorted_tokens[-10000:]] + ['<s>', '<UNKNOWN>', '<UNK>']
@@ -108,7 +118,7 @@ if __name__ == '__main__':
     top3_acc = tf.reduce_mean(tf.cast(tf.nn.in_top_k(preds, tf.argmax(y, 1), k=3), dtype='float32'))
     sess = tf.Session()
     saver = tf.train.Saver()
-    model_path = '{}/lstmp_{}_{}/lstm'.format(SAVE_PATH, 25000, 1)
+    model_path = '{}/lstmpc10k5-3_{}_{}/lstm'.format(SAVE_PATH, 65000, 1)
     saver.restore(sess, model_path)
 
     for c in [True, False]:
@@ -117,12 +127,12 @@ if __name__ == '__main__':
             all_top3_acc = []
             for i, (b_x, b_y) in enumerate(iterate_test_batch(token_dict, perc_unk=perc_unk, c=c,
                                                     batch_size=32, pre=5, suf=3, output_size=10000,
-                                                    clean=False)):
+                                                    clean=True)):
                 preds_, acc_, top3_acc_ = sess.run([preds, acc, top3_acc], feed_dict={x: b_x, y: b_y})
                 all_acc.append(acc_)
                 all_top3_acc.append(top3_acc_)
             print('Acc: {} - Top 3 Acc: {} - percentage truncated: {} - contiguous words: {}'.format(
                 np.mean(all_acc), np.mean(all_top3_acc), perc_unk, c))
-            with open('results/lstmp10k5-3_results.txt', 'a') as f:
+            with open('results/lstmpc10k5-3_results.txt', 'a') as f:
                 f.write('TEST: Acc: {} - Top 3 Acc: {} - percentage truncated: {} - contiguous words: {}\n'.format(
                 np.mean(all_acc), np.mean(all_top3_acc), perc_unk, c))

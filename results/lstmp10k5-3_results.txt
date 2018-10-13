@@ -8,3 +8,5 @@ TEST: Acc: 0.356551200151 - Top 3 Acc: 0.486445784569 - percentage truncated: 10
 TEST: Acc: 0.35948741436 - Top 3 Acc: 0.486285984516 - percentage truncated: 20 - contiguous words: False
 TEST: Acc: 0.328534036875 - Top 3 Acc: 0.456806272268 - percentage truncated: 30 - contiguous words: False
 TEST: Acc: 0.324498951435 - Top 3 Acc: 0.456882923841 - percentage truncated: 40 - contiguous words: False
+TEST: Acc: 0.0524364411831 - Top 3 Acc: 0.101694911718 - percentage truncated: 5 - contiguous words: True
+TEST: Acc: 0.0463598892093 - Top 3 Acc: 0.088255494833 - percentage truncated: 10 - contiguous words: True
