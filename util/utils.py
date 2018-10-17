@@ -77,17 +77,19 @@ def structure_file(file, suf=3, pre=5, clean=False):
     structured_unks = []
     lines = open(file, 'r').readlines()
 
-    # clean lines...
-
+    # Store index of unks to reconstruct sentences
+    unk_index = []
     for j, line in enumerate(lines):
         if clean:
             cleaned_line = clean_line(line)
         else:
             cleaned_line = line
+
         tokens = tokenize_sentence(cleaned_line)
         n_tokens = len(tokens)
         for i, token in enumerate(tokens):
             if '<unk w="' in token:
+                unk_index.append([j, i])
                 end = min(n_tokens, i + suf)
                 start = max(0, i - pre)
                 history = tokens[start:end + 1]
@@ -105,4 +107,4 @@ def structure_file(file, suf=3, pre=5, clean=False):
                 structured_unk[pre] = '<UNK>'
                 y = re.search('<unk w="(.*)"/>', token).group(1)
                 structured_unks.append([structured_unk, y])
-    return structured_unks
+    return structured_unks, unk_index

@@ -1,0 +1,13 @@
+TEST: Acc: 0.0640889853239 - Top 3 Acc: 0.11811440438 - % Perfect Sentence Prediction %: 0.0322580645161 - Word2Vec Distance: 0.723479000274- percentage truncated: 5 - contiguous words: True 
+TEST: Acc: 0.057005494833 - Top 3 Acc: 0.103708788753 - % Perfect Sentence Prediction %: 0.0180541624875 - Word2Vec Distance: 0.732017297401- percentage truncated: 10 - contiguous words: True 
+TEST: Acc: 0.0581173785031 - Top 3 Acc: 0.102134145796 - % Perfect Sentence Prediction %: 0.00301204819277 - Word2Vec Distance: 0.723468064789- percentage truncated: 20 - contiguous words: True 
+TEST: Acc: 0.300317794085 - Top 3 Acc: 0.427966088057 - % Perfect Sentence Prediction %: 0.195564516129 - Word2Vec Distance: 0.422023460347- percentage truncated: 5 - contiguous words: True 
+TEST: Acc: 0.283310443163 - Top 3 Acc: 0.401785701513 - % Perfect Sentence Prediction %: 0.108324974925 - Word2Vec Distance: 0.416466967558- percentage truncated: 10 - contiguous words: True 
+TEST: Acc: 0.25933688879 - Top 3 Acc: 0.369664639235 - % Perfect Sentence Prediction %: 0.035140562249 - Word2Vec Distance: 0.432371534192- percentage truncated: 20 - contiguous words: True 
+TEST: Acc: 0.215767636895 - Top 3 Acc: 0.322095423937 - % Perfect Sentence Prediction %: 0.00900900900901 - Word2Vec Distance: 0.458571221689- percentage truncated: 30 - contiguous words: True 
+TEST: Acc: 0.185952007771 - Top 3 Acc: 0.283862233162 - % Perfect Sentence Prediction %: 0 - Word2Vec Distance: 0.468477513726- percentage truncated: 40 - contiguous words: True 
+TEST: Acc: 0.310795456171 - Top 3 Acc: 0.438068181276 - % Perfect Sentence Prediction %: 0.193124368049 - Word2Vec Distance: 0.425376431678- percentage truncated: 5 - contiguous words: False 
+TEST: Acc: 0.300075292587 - Top 3 Acc: 0.430346399546 - % Perfect Sentence Prediction %: 0.10685483871 - Word2Vec Distance: 0.427096310288- percentage truncated: 10 - contiguous words: False 
+TEST: Acc: 0.311375886202 - Top 3 Acc: 0.42985612154 - % Perfect Sentence Prediction %: 0.062124248497 - Word2Vec Distance: 0.406663685296- percentage truncated: 20 - contiguous words: False 
+TEST: Acc: 0.283376961946 - Top 3 Acc: 0.409522265196 - % Perfect Sentence Prediction %: 0.014014014014 - Word2Vec Distance: 0.431293488649- percentage truncated: 30 - contiguous words: False 
+TEST: Acc: 0.285996824503 - Top 3 Acc: 0.414820671082 - % Perfect Sentence Prediction %: 0.00500500500501 - Word2Vec Distance: 0.426785134087- percentage truncated: 40 - contiguous words: False 

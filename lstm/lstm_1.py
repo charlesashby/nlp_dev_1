@@ -120,6 +120,7 @@ def get_lines(file):
         lines = f.readlines()
         return lines
 
+
 def build_dataset(n_pad=10):
     with open(train_file_name, 'a') as f:
         writer = csv.writer(f)
@@ -165,7 +166,6 @@ def build_dataset_clean(pre=8, suf=4):
                             tt.append(x)
 
 
-
 def read_lines(reader, n_lines):
     lines = []
     for i, line in enumerate(reader):
@@ -174,6 +174,7 @@ def read_lines(reader, n_lines):
         else:
             lines.append(line)
     return lines, reader
+
 
 def shuffle_dataset():
     # total n lines: 28,465,585
@@ -187,6 +188,7 @@ def shuffle_dataset():
             for row in lines:
                 writer.writerow(row)
 
+
 def tokenize_sentence(sentence):
     tokens = sentence.split(' ')
     tokens_clean = []
@@ -198,6 +200,7 @@ def tokenize_sentence(sentence):
         else:
             tokens_clean.append(tokens[i])
     return tokens_clean
+
 
 def sample_noise(pre, suf, noise, batch_size):
     rns = []
@@ -215,6 +218,7 @@ def sample_noise(pre, suf, noise, batch_size):
         else:
             rns.append(None)
     return rns
+
 
 class DataReader(object):
 
@@ -344,7 +348,7 @@ class DataReader(object):
                 pass
 
         # Add noise in the inputs
-        # rns = sample_noise(pre, suf, 0.2, batch_size)
+        # rns = sample_noise(pre, suf, 0.15, batch_size)
         # for i, mb in enumerate(mini_batch_x):
         #     if rns[i]:
         #         mini_batch_x[i, rns[i], :] = 0.
@@ -365,11 +369,11 @@ class DataReader(object):
 
     def iterate_mini_batch(self, batch_size, pre=5, suf=3, dataset='train'):
         if dataset == 'train':
-            n_batch = int(2800000 / (batch_size * 1.2))
+            n_batch = int(2800000 / (batch_size * 2))
             for i in range(n_batch):
                 # We load twice the number of lines we need to make sure there are no
                 # "unknown" y's (since we reduced the size of the word dict
-                if self.load_to_ram(int(batch_size * 1.2), self.reader_train):
+                if self.load_to_ram(int(batch_size * 2), self.reader_train):
                     # inputs, targets = self.make_mini_batch_train(self.data, batch_size)
                     inputs, targets = self.mb_predict_middle_sentence(self.data, batch_size, pre, suf)
 
@@ -381,7 +385,7 @@ class DataReader(object):
                 # print('valid: {}'.format(i))
                 # We load twice the number of lines we need to make sure there are no
                 # "unknown" y's (since we reduced the size of the word dict
-                if self.load_to_ram(int(batch_size * 1.2), self.reader_valid):
+                if self.load_to_ram(int(batch_size * 2), self.reader_valid):
                     inputs, targets = self.mb_predict_middle_sentence(self.data, batch_size, pre, suf)
                     # inputs, targets = self.make_mini_batch_train(self.data, batch_size)
                     yield inputs, targets
@@ -390,7 +394,7 @@ class DataReader(object):
 if __name__ == '__main__':
     # from lstm.lstm_1 import *
 
-    with open('../clean_token_dict.pickle', 'rb') as f:
+    with open('../tokens_dict.pickle', 'rb') as f:
         tokens_dict = pickle.load(f)
     print('building graph')
     sorted_tokens = sorted(tokens_dict.items(), key=lambda item: item[1])
@@ -398,12 +402,12 @@ if __name__ == '__main__':
     # b_x, b_y, m = data_reader.make_mini_batch(data_reader.lines[:32])
     batch_size = 32
     # valid_batch_size = 1000
-    rnn_size = 1024
+    rnn_size = 512
     max_n_token_sentence = 100
     max_n_token_dict = 10000 + 3
     learning_rate = 0.001
-    pre=5
-    suf=3
+    pre = 5
+    suf = 3
     # data_reader = DataReader(shuffled_train_set, shuffled_valid_set,
     #                          7, tokens_dict, 7, 10000)
     # tt = data_reader.iterate_mini_batch(batch_size)
@@ -437,10 +441,10 @@ if __name__ == '__main__':
     best_acc = 0.
     with tf.Session() as sess:
 
-        sess.run(tf.global_variables_initializer())
-        # saver.restore(sess, '{}/lstmp_{}_{}/lstm'.format(SAVE_PATH, 20000, 0))
+        # sess.run(tf.global_variables_initializer())
+        saver.restore(sess, '{}/lstmp10k5-3v1__{}_{}/lstm'.format(SAVE_PATH, 40000, 0))
         for epoch in range(10):
-            data_reader = DataReader(shuffled_pc5_3_train_set, shuffled_pc5_3_valid_set,
+            data_reader = DataReader(shuffled_p_train_set, shuffled_p_train_set,
                                      7, tokens_dict, 7, 10000)
             # print('ok')
             train_acc = []
@@ -459,7 +463,7 @@ if __name__ == '__main__':
                     print(np.argmax(preds_, axis=1))
                     print(np.argmax(b_y, axis=1))
                     print('TRAIN: epoch: {} - iteration: {} - acc: {} - loss: {}'.format(epoch, i, np.mean(train_acc), np.mean(train_cost)))
-                    with open('log_5-3c10k.txt', 'a') as f:
+                    with open('log_lstmp10k5-3v1.txt', 'a') as f:
                         f.write('TRAIN: epoch: {} - iteration: {} - acc: {} - loss: {} \n'.format(epoch, i, np.mean(train_acc), np.mean(train_cost)))
                     train_acc = []
                     train_cost = []
@@ -477,13 +481,13 @@ if __name__ == '__main__':
                     mean_acc = np.mean(valid_acc)
                     if mean_acc > best_acc:
                         best_acc = mean_acc
-                        os.mkdir('{}/lstmpc10k5-3_{}_{}'.format(SAVE_PATH, i, epoch))
-                        save_path = saver.save(sess, '{}/lstmpc10k5-3_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
-                        with open('log_5-3c10k.txt', 'a') as f:
-                            f.write('saving model: {}/lstmpc10k5-3_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
-                            print('saving model: {}/lstmpc10k5-3_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
+                        os.mkdir('{}/lstmp10k5-3v1_{}_{}'.format(SAVE_PATH, i, epoch))
+                        save_path = saver.save(sess, '{}/lstmp10k5-3v1_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
+                        with open('log_lstmp10k5-3v1.txt', 'a') as f:
+                            f.write('saving model: {}/lstmp10k5-3v1_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
+                            print('saving model: {}/lstmp10k5-3v1_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
                     print(np.argmax(preds__, axis=1))
                     print(np.argmax(bb_y, axis=1))
                     print('VALID: epoch: {} - iteration: {} - acc: {} -- last_pred:'.format(epoch, i, mean_acc))
-                    with open('log_5-3c10k.txt', 'a') as f:
+                    with open('log_lstmp10k5-3v1.txt', 'a') as f:
                         f.write('VALID: epoch: {} - iteration: {} - acc: {} \n'.format(epoch, i, mean_acc))
