@@ -278,38 +278,7 @@ class DataReader(object):
             test_batch.append(line_x)
         return test_batch
 
-    def make_mini_batch_train(self, lines, batch_size):
-        n_lines = len(lines)
-        act_batch_size = 0
-        mini_batch_x = np.zeros(shape=[batch_size,
-                                       self.max_n_tokens_sentence,
-                                       self.n_tokens_dict])
-        mini_batch_y = np.zeros(shape=[batch_size, self.n_tokens_dict])
-        # We load twice the number of lines we need to make sure there are no
-        # "unknown" y's (since we reduced the size of the word dict
-        lines = enumerate(lines)
-        while act_batch_size < batch_size:
-            # import pdb; pdb.set_trace()
-            j, line = next(lines)
-            y = line[-1]
-            y_pos = self.get_token_dict_pos(y)
-
-            mini_batch_y[act_batch_size][y_pos] = 1.
-
-            # print('actual batch size: {} {}'.format(act_batch_size < batch_size, act_batch_size))
-            if y_pos != -2 and y_pos != -3:
-                x = line[- (self.max_n_tokens_sentence + 1):-1]
-                # print('x tokens used for inference: {}'.format(x))
-                # print('y token used for target: {}'.format(y))
-                for i, token in enumerate(x):
-                    token_pos = self.get_token_dict_pos(token)
-                    mini_batch_x[act_batch_size][i][token_pos] = 1.
-                act_batch_size += 1
-            else:
-                pass
-        return mini_batch_x, mini_batch_y
-
-    def mb_predict_middle_sentence(self, lines, batch_size, pre=5, suf=3):
+    def mb_predict_middle_sentence(self, lines, batch_size, pre=5, suf=3, noise=0.25):
         n_lines = len(lines)
         act_batch_size = 0
         mini_batch_x = np.zeros(shape=[batch_size,
@@ -348,11 +317,13 @@ class DataReader(object):
                 pass
 
         # Add noise in the inputs
-        # rns = sample_noise(pre, suf, 0.15, batch_size)
-        # for i, mb in enumerate(mini_batch_x):
-        #     if rns[i]:
-        #         mini_batch_x[i, rns[i], :] = 0.
-        #         mini_batch_x[i, rns[i], -2] = 1.
+        if noise is not None:
+            rns = sample_noise(pre, suf, noise, batch_size)
+            for i, mb in enumerate(mini_batch_x):
+                if rns[i]:
+                    mini_batch_x[i, rns[i], :] = 0.
+                    mini_batch_x[i, rns[i], -2] = 1.
+
 
         return mini_batch_x, mini_batch_y
 
@@ -367,15 +338,15 @@ class DataReader(object):
         else:
             return False
 
-    def iterate_mini_batch(self, batch_size, pre=5, suf=3, dataset='train'):
+    def iterate_mini_batch(self, batch_size, pre=5, suf=3, dataset='train', noise=0.25):
         if dataset == 'train':
-            n_batch = int(2800000 / (batch_size * 2))
+            n_batch = int(2800000 / (batch_size * 1.5))
             for i in range(n_batch):
                 # We load twice the number of lines we need to make sure there are no
                 # "unknown" y's (since we reduced the size of the word dict
-                if self.load_to_ram(int(batch_size * 2), self.reader_train):
+                if self.load_to_ram(int(batch_size * 1.5), self.reader_train):
                     # inputs, targets = self.make_mini_batch_train(self.data, batch_size)
-                    inputs, targets = self.mb_predict_middle_sentence(self.data, batch_size, pre, suf)
+                    inputs, targets = self.mb_predict_middle_sentence(self.data, batch_size, pre, suf, noise=noise)
 
                     yield inputs, targets
         else:
@@ -385,33 +356,20 @@ class DataReader(object):
                 # print('valid: {}'.format(i))
                 # We load twice the number of lines we need to make sure there are no
                 # "unknown" y's (since we reduced the size of the word dict
-                if self.load_to_ram(int(batch_size * 2), self.reader_valid):
+                if self.load_to_ram(int(batch_size * 1.5), self.reader_valid):
                     inputs, targets = self.mb_predict_middle_sentence(self.data, batch_size, pre, suf)
                     # inputs, targets = self.make_mini_batch_train(self.data, batch_size)
                     yield inputs, targets
 
 
-if __name__ == '__main__':
-    # from lstm.lstm_1 import *
-
-    with open('../tokens_dict.pickle', 'rb') as f:
-        tokens_dict = pickle.load(f)
-    print('building graph')
-    sorted_tokens = sorted(tokens_dict.items(), key=lambda item: item[1])
-    token_dict = [t[0] for t in sorted_tokens[-10000:]] + ['<s>', '<UNKNOWN>', '<UNK>']
-    # b_x, b_y, m = data_reader.make_mini_batch(data_reader.lines[:32])
-    batch_size = 32
-    # valid_batch_size = 1000
-    rnn_size = 512
-    max_n_token_sentence = 100
-    max_n_token_dict = 10000 + 3
-    learning_rate = 0.001
-    pre = 5
-    suf = 3
-    # data_reader = DataReader(shuffled_train_set, shuffled_valid_set,
-    #                          7, tokens_dict, 7, 10000)
-    # tt = data_reader.iterate_mini_batch(batch_size)
-    # t = next(tt)
+def train(clean, batch_size=32, rnn_size=1024, max_n_token_dict=10003, learning_rate=0.001, pre=8, suf=4,
+          file_out="lstmp10k5-3v1", noise=0.25):
+    if clean:
+        with open('../clean_token_dict.pickle', 'rb') as f:
+            tokens_dict = pickle.load(f)
+    else:
+        with open('../tokens_dict.pickle', 'rb') as f:
+            tokens_dict = pickle.load(f)
 
     # GRAPH
     x = tf.placeholder('float32', shape=[None, None, max_n_token_dict])
@@ -427,8 +385,6 @@ if __name__ == '__main__':
     w = tf.get_variable("w", [rnn_size, max_n_token_dict], dtype='float32')
     b = tf.get_variable("b", [max_n_token_dict], dtype='float32')
     preds = tf.nn.softmax(tf.matmul(outputs_reshape, w) + b)
-    preds_argmax = tf.argmax(preds, axis=1)
-    # preds_reshaped = tf.reshape(preds, shape=[-1, max_n_token_sentence, max_n_token_dict])
     cost = - tf.reduce_sum(y * tf.log(tf.clip_by_value(preds, 1e-10, 1.0)), axis=1)
     cost = tf.reduce_mean(cost, axis=0)
     predictions = tf.cast(tf.equal(tf.argmax(preds, 1), tf.argmax(y, 1)), dtype='float32')
@@ -441,12 +397,11 @@ if __name__ == '__main__':
     best_acc = 0.
     with tf.Session() as sess:
 
-        # sess.run(tf.global_variables_initializer())
-        saver.restore(sess, '{}/lstmp10k5-3v1__{}_{}/lstm'.format(SAVE_PATH, 40000, 0))
+        sess.run(tf.global_variables_initializer())
+        # saver.restore(sess, '{}/lstmp10k5-3v1__{}_{}/lstm'.format(SAVE_PATH, 40000, 0))
         for epoch in range(10):
-            data_reader = DataReader(shuffled_p_train_set, shuffled_p_train_set,
+            data_reader = DataReader(shuffled_p_train_set, shuffled_p_valid_set,
                                      7, tokens_dict, 7, 10000)
-            # print('ok')
             train_acc = []
             train_cost = []
             for i, batch in enumerate(data_reader.iterate_mini_batch(batch_size, pre=pre, suf=suf)):
@@ -456,38 +411,37 @@ if __name__ == '__main__':
                 train_acc.append(a)
                 train_cost.append(c)
 
-                # Check last prediction:
-                # argmax = np.argmax(preds_, axis=1)
-                # print('-'.join(a for a in argmax[:10]))
                 if i % 500 == 0:
                     print(np.argmax(preds_, axis=1))
                     print(np.argmax(b_y, axis=1))
                     print('TRAIN: epoch: {} - iteration: {} - acc: {} - loss: {}'.format(epoch, i, np.mean(train_acc), np.mean(train_cost)))
-                    with open('log_lstmp10k5-3v1.txt', 'a') as f:
+                    with open('log_{}.txt'.format(file_out), 'a') as f:
                         f.write('TRAIN: epoch: {} - iteration: {} - acc: {} - loss: {} \n'.format(epoch, i, np.mean(train_acc), np.mean(train_cost)))
                     train_acc = []
                     train_cost = []
                 if i % 5000 == 0 and i != 0:
-                    # print('validating')
                     valid_acc = []
 
-                    for k, batch_valid in enumerate(data_reader.iterate_mini_batch(batch_size, dataset='valid', pre=pre, suf=suf)):
+                    for k, batch_valid in enumerate(data_reader.iterate_mini_batch(batch_size, dataset='valid', pre=pre, suf=suf, noise=noise)):
                         bb_x, bb_y = batch_valid
                         # compute accuracy on validation set
                         cc, aa, preds__ = sess.run([cost, acc, preds],
                                            feed_dict={x: bb_x, y: bb_y})
-                        # reshaped_predictions__ = predictions__.reshape((-1,))
                         valid_acc.append(aa)
                     mean_acc = np.mean(valid_acc)
                     if mean_acc > best_acc:
                         best_acc = mean_acc
-                        os.mkdir('{}/lstmp10k5-3v1_{}_{}'.format(SAVE_PATH, i, epoch))
-                        save_path = saver.save(sess, '{}/lstmp10k5-3v1_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
-                        with open('log_lstmp10k5-3v1.txt', 'a') as f:
-                            f.write('saving model: {}/lstmp10k5-3v1_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
-                            print('saving model: {}/lstmp10k5-3v1_{}_{}/lstm'.format(SAVE_PATH, i, epoch))
+                        os.mkdir('{}/{}_{}_{}'.format(file_out, SAVE_PATH, i, epoch))
+                        save_path = saver.save(sess, '{}/{}_{}_{}/lstm'.format(file_out, SAVE_PATH, i, epoch))
+                        with open('log_{}.txt'.format(file_out), 'a') as f:
+                            f.write('saving model: {}/{}_{}_{}/lstm'.format(file_out, SAVE_PATH, i, epoch))
+                            print('saving model: {}/{}_{}_{}/lstm'.format(file_out, SAVE_PATH, i, epoch))
                     print(np.argmax(preds__, axis=1))
                     print(np.argmax(bb_y, axis=1))
                     print('VALID: epoch: {} - iteration: {} - acc: {} -- last_pred:'.format(epoch, i, mean_acc))
-                    with open('log_lstmp10k5-3v1.txt', 'a') as f:
+                    with open('log_{}.txt'.format(file_out), 'a') as f:
                         f.write('VALID: epoch: {} - iteration: {} - acc: {} \n'.format(epoch, i, mean_acc))
+
+
+if __name__ == '__main__':
+    train(clean=True, pre=8, suf=4, file_out="lstmpc8-4")

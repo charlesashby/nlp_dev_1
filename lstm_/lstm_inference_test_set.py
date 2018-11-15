@@ -87,9 +87,17 @@ def get_word_distance(w1, w2):
 # Acc: 0.328534036875 - Top 3 Acc: 0.456806272268 - % Perfect Sentence Prediction %: 0.019019019019 - Word2Vec Distance: 0.441819779791- percentage truncated: 30 - contiguous words: False
 # Acc: 0.324498951435 - Top 3 Acc: 0.456882923841 - % Perfect Sentence Prediction %: 0.004004004004 - Word2Vec Distance: 0.442030069032- percentage truncated: 40 - contiguous words: False
 
-
 # TODO: Accuracies lstmp10k5-3v1 512 rnn size checkpoint: {}/lstmp10k5-3v1
-
+# Acc: 0.300317794085 - Top 3 Acc: 0.427966088057 - % Perfect Sentence Prediction %: 0.195564516129 - Word2Vec Distance: 0.422023460347- percentage truncated: 5 - contiguous words: True
+# Acc: 0.283310443163 - Top 3 Acc: 0.401785701513 - % Perfect Sentence Prediction %: 0.108324974925 - Word2Vec Distance: 0.416466967558- percentage truncated: 10 - contiguous words: True
+# Acc: 0.25933688879 - Top 3 Acc: 0.369664639235 - % Perfect Sentence Prediction %: 0.035140562249 - Word2Vec Distance: 0.432371534192- percentage truncated: 20 - contiguous words: True
+# Acc: 0.215767636895 - Top 3 Acc: 0.322095423937 - % Perfect Sentence Prediction %: 0.00900900900901 - Word2Vec Distance: 0.458571221689- percentage truncated: 30 - contiguous words: True
+# Acc: 0.185952007771 - Top 3 Acc: 0.283862233162 - % Perfect Sentence Prediction %: 0 - Word2Vec Distance: 0.468477513726- percentage truncated: 40 - contiguous words: True
+# Acc: 0.310795456171 - Top 3 Acc: 0.438068181276 - % Perfect Sentence Prediction %: 0.193124368049 - Word2Vec Distance: 0.425376431678- percentage truncated: 5 - contiguous words: False
+# Acc: 0.300075292587 - Top 3 Acc: 0.430346399546 - % Perfect Sentence Prediction %: 0.10685483871 - Word2Vec Distance: 0.427096310288- percentage truncated: 10 - contiguous words: False
+# Acc: 0.311375886202 - Top 3 Acc: 0.42985612154 - % Perfect Sentence Prediction %: 0.062124248497 - Word2Vec Distance: 0.406663685296- percentage truncated: 20 - contiguous words: False
+# Acc: 0.283376961946 - Top 3 Acc: 0.409522265196 - % Perfect Sentence Prediction %: 0.014014014014 - Word2Vec Distance: 0.431293488649- percentage truncated: 30 - contiguous words: False
+# Acc: 0.285996824503 - Top 3 Acc: 0.414820671082 - % Perfect Sentence Prediction %: 0.00500500500501 - Word2Vec Distance: 0.426785134087- percentage truncated: 40 - contiguous words: False
 
 # Accuracies lstmpc10k8-4 1024 rnn size checkpoint: {}/lstmpc10k8-4_5000_3/lstm
 # Acc: 0.387711852789 - Top 3 Acc: 0.525953412056 - % Perfect Sentence Prediction %: 0.259072580645 - Word2Vec Distance: 0.396370822778- percentage truncated: 5 - contiguous words: True
@@ -102,6 +110,71 @@ def get_word_distance(w1, w2):
 # Acc: 0.397706836462 - Top 3 Acc: 0.533722996712 - % Perfect Sentence Prediction %: 0.0731462925852 - Word2Vec Distance: 0.396978020995- percentage truncated: 20 - contiguous words: False
 # Acc: 0.362238228321 - Top 3 Acc: 0.508671462536 - % Perfect Sentence Prediction %: 0.026026026026 - Word2Vec Distance: 0.420171889587- percentage truncated: 30 - contiguous words: False
 # Acc: 0.355748951435 - Top 3 Acc: 0.50237339735 - % Perfect Sentence Prediction %: 0.00700700700701 - Word2Vec Distance: 0.426407816611- percentage truncated: 40 - contiguous words: False
+
+# Accuracies lstmp5k8-4 1024 rnn size checkpoint: {}/lstmp8-4_35000_1/lstm
+# Acc: 0.324682205915 - Top 3 Acc: 0.477224588394 - % Perfect Sentence Prediction: 0.210685483871 - Word2Vec Distance: 0.392288033616 - % unknown: 0.101694915254- percentage truncated: 5 - contiguous words: True
+# Acc: 0.292925834656 - Top 3 Acc: 0.448145598173 - % Perfect Sentence Prediction: 0.119358074223 - Word2Vec Distance: 0.409599695082 - % unknown: 0.101304945055- percentage truncated: 10 - contiguous words: True
+# Acc: 0.26867377758 - Top 3 Acc: 0.410632610321 - % Perfect Sentence Prediction: 0.0301204819277 - Word2Vec Distance: 0.425492357208 - % unknown: 0.0920350609756- percentage truncated: 20 - contiguous words: True
+# Acc: 0.225103735924 - Top 3 Acc: 0.363848537207 - % Perfect Sentence Prediction: 0.00900900900901 - Word2Vec Distance: 0.454694026971 - % unknown: 0.0896006224066- percentage truncated: 30 - contiguous words: True
+# Acc: 0.197368428111 - Top 3 Acc: 0.331656336784 - % Perfect Sentence Prediction: 0.001 - Word2Vec Distance: 0.471582435388 - % unknown: 0.0920085139319- percentage truncated: 40 - contiguous words: True
+# Acc: 0.331250011921 - Top 3 Acc: 0.470454543829 - % Perfect Sentence Prediction: 0.202224469161 - Word2Vec Distance: 0.406257629914 - % unknown: 0.0960227272727- percentage truncated: 5 - contiguous words: False
+# Acc: 0.318900614977 - Top 3 Acc: 0.475150614977 - % Perfect Sentence Prediction: 0.108870967742 - Word2Vec Distance: 0.406756629094 - % unknown: 0.0914909638554- percentage truncated: 10 - contiguous words: False
+# Acc: 0.322392076254 - Top 3 Acc: 0.473246395588 - % Perfect Sentence Prediction: 0.0551102204409 - Word2Vec Distance: 0.39326681936 - % unknown: 0.0948741007194- percentage truncated: 20 - contiguous words: False
+# Acc: 0.291230380535 - Top 3 Acc: 0.447480380535 - % Perfect Sentence Prediction: 0.017017017017 - Word2Vec Distance: 0.421207720439 - % unknown: 0.0983311518325- percentage truncated: 30 - contiguous words: False
+# Acc: 0.291007369757 - Top 3 Acc: 0.449235230684 - % Perfect Sentence Prediction: 0.004004004004 - Word2Vec Distance: 0.421188221114 - % unknown: 0.0967827004219- percentage truncated: 40 - contiguous words: False
+
+# TODO: Accuracies lstmp10k8-4 1024 rnn size checkpoint: {}/lstmp10k8-4_ _ /lstm
+# Acc: 0.309851706028 - Top 3 Acc: 0.450211852789 - % Perfect Sentence Prediction: 0.197580645161 - Word2Vec Distance: 0.430822229725 - % unknown: 0.0688559322034- percentage truncated: 5 - contiguous words: True
+# Acc: 0.274038463831 - Top 3 Acc: 0.421703308821 - % Perfect Sentence Prediction: 0.102306920762 - Word2Vec Distance: 0.453448112632 - % unknown: 0.0721153846154- percentage truncated: 10 - contiguous words: True
+# Acc: 0.2578125 - Top 3 Acc: 0.385289639235 - % Perfect Sentence Prediction: 0.0301204819277 - Word2Vec Distance: 0.469057018414 - % unknown: 0.0611661585366- percentage truncated: 20 - contiguous words: True
+# Acc: 0.220306023955 - Top 3 Acc: 0.337136924267 - % Perfect Sentence Prediction: 0.00800800800801 - Word2Vec Distance: 0.490926168959 - % unknown: 0.0619813278008- percentage truncated: 30 - contiguous words: True
+# Acc: 0.183436527848 - Top 3 Acc: 0.29837462306 - % Perfect Sentence Prediction: 0.001 - Word2Vec Distance: 0.51173191878 - % unknown: 0.062790247678- percentage truncated: 40 - contiguous words: True
+# Acc: 0.315340906382 - Top 3 Acc: 0.44829544425 - % Perfect Sentence Prediction: 0.19514661274 - Word2Vec Distance: 0.446305431693 - % unknown: 0.0647727272727- percentage truncated: 5 - contiguous words: False
+# Acc: 0.31174698472 - Top 3 Acc: 0.440135538578 - % Perfect Sentence Prediction: 0.113911290323 - Word2Vec Distance: 0.446297832442 - % unknown: 0.0643825301205- percentage truncated: 10 - contiguous words: False
+# Acc: 0.310926258564 - Top 3 Acc: 0.444244593382 - % Perfect Sentence Prediction: 0.0480961923848 - Word2Vec Distance: 0.436733404545 - % unknown: 0.0658723021583- percentage truncated: 20 - contiguous words: False
+# Acc: 0.284522265196 - Top 3 Acc: 0.416884809732 - % Perfect Sentence Prediction: 0.011011011011 - Word2Vec Distance: 0.463293381694 - % unknown: 0.0696989528796- percentage truncated: 30 - contiguous words: False
+# Acc: 0.277821719646 - Top 3 Acc: 0.417062222958 - % Perfect Sentence Prediction: 0.003003003003 - Word2Vec Distance: 0.462371457213 - % unknown: 0.0685654008439- percentage truncated: 40 - contiguous words: False
+
+# Accuracies lstmpcn10k5-3 1024 rnn checkpoint: lstmpcn10k5-3_55000_1/lstm
+# Acc: 0.399364411831 - Top 3 Acc: 0.536016941071 - % Perfect Sentence Prediction: 0.259072580645 - Word2Vec Distance: 0.390036910671 - % unknown: 0.03125- percentage truncated: 5 - contiguous words: True
+# Acc: 0.37603020668 - Top 3 Acc: 0.512706041336 - % Perfect Sentence Prediction: 0.165496489468 - Word2Vec Distance: 0.399547556326 - % unknown: 0.0288461538462- percentage truncated: 10 - contiguous words: True
+# Acc: 0.35003811121 - Top 3 Acc: 0.491806387901 - % Perfect Sentence Prediction: 0.0502008032129 - Word2Vec Distance: 0.419634016383 - % unknown: 0.0222942073171- percentage truncated: 20 - contiguous words: True
+# Acc: 0.31846472621 - Top 3 Acc: 0.451244801283 - % Perfect Sentence Prediction: 0.021021021021 - Word2Vec Distance: 0.440405344641 - % unknown: 0.0238589211618- percentage truncated: 30 - contiguous words: True
+# Acc: 0.287828952074 - Top 3 Acc: 0.42037537694 - % Perfect Sentence Prediction: 0.004 - Word2Vec Distance: 0.460738747355 - % unknown: 0.0240905572755- percentage truncated: 40 - contiguous words: True
+# Acc: 0.408522725105 - Top 3 Acc: 0.537500023842 - % Perfect Sentence Prediction: 0.266936299292 - Word2Vec Distance: 0.38177542069 - % unknown: 0.03125- percentage truncated: 5 - contiguous words: False
+# Acc: 0.402484953403 - Top 3 Acc: 0.541415691376 - % Perfect Sentence Prediction: 0.172379032258 - Word2Vec Distance: 0.392176892552 - % unknown: 0.0252259036145- percentage truncated: 10 - contiguous words: False
+# Acc: 0.40265288949 - Top 3 Acc: 0.545638501644 - % Perfect Sentence Prediction: 0.0811623246493 - Word2Vec Distance: 0.386340634871 - % unknown: 0.0285521582734- percentage truncated: 20 - contiguous words: False
+# Acc: 0.378435850143 - Top 3 Acc: 0.525196313858 - % Perfect Sentence Prediction: 0.029029029029 - Word2Vec Distance: 0.402234112265 - % unknown: 0.0287958115183- percentage truncated: 30 - contiguous words: False
+# Acc: 0.377241551876 - Top 3 Acc: 0.523074865341 - % Perfect Sentence Prediction: 0.015015015015 - Word2Vec Distance: 0.401476402732 - % unknown: 0.0288765822785- percentage truncated: 40 - contiguous words: False
+
+
+def get_lines(perc_unk, c=False):
+    if c:
+        test_file = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u{}c.en'.format(perc_unk))
+    else:
+        test_file = os.path.join(data_path, 'en/unk-europarl-v7.fi-en-u{}.en'.format(perc_unk))
+
+    lines_clean = []
+    lines = open(test_file, 'r').readlines()
+    for line in lines:
+        lines_clean.append(tokenize_sentence(line))
+    return lines_clean
+
+
+def build_file(perc_unk, c, file_out, token_dict):
+    lines = get_lines(perc_unk, c)
+    for pp in preds_indexes:
+        lines[pp[1][0]][pp[1][1]] = '<unk w="{}"/>'.format(token_dict[pp[2]])
+
+    clean_lines = []
+    for line in lines:
+        clean_lines.append(' '.join(t for t in line))
+
+    with open(file_out, 'a') as f:
+        for line in clean_lines:
+            f.write('{}\n'.format(line))
+    return True
+
 
 def iterate_test_batch(token_dict, perc_unk=10, c=False, batch_size=32,
                        pre=12, suf=6, output_size=10000, clean=True):
@@ -137,13 +210,13 @@ def iterate_test_batch(token_dict, perc_unk=10, c=False, batch_size=32,
 if __name__ == '__main__':
 
     # word2vec:
-    with open('tokens_dict.pickle', 'rb') as f:
+    with open('clean_token_dict.pickle', 'rb') as f:
         tokens_dict = pickle.load(f)
     sorted_tokens = sorted(tokens_dict.items(), key=lambda item: item[1])
     token_dict = [t[0] for t in sorted_tokens[-10000:]] + ['<s>', '<UNKNOWN>', '<UNK>']
 
     batch_size = 32
-    rnn_size = 512
+    rnn_size = 1024
     max_n_token_dict = 10000 + 3
 
     x = tf.placeholder('float32', shape=[None, None, max_n_token_dict])
@@ -168,7 +241,7 @@ if __name__ == '__main__':
     top3_acc = tf.reduce_mean(tf.cast(tf.nn.in_top_k(preds, tf.argmax(y, 1), k=3), dtype='float32'))
     sess = tf.Session()
     saver = tf.train.Saver()
-    model_path = '{}/lstmp10k5-3v1_{}_{}/lstm'.format(SAVE_PATH, 40000, 0)
+    model_path = '{}/lstmpc10k8-4n15_{}_{}/lstm'.format(SAVE_PATH, 60000, 2)
     saver.restore(sess, model_path)
 
     for c in [True, False]:
@@ -177,7 +250,7 @@ if __name__ == '__main__':
             all_top3_acc = []
             preds_indexes = []
             for i, (b_x, b_y, unk_index) in enumerate(iterate_test_batch(token_dict, perc_unk=perc_unk, c=c,
-                                                    batch_size=32, pre=5, suf=3, output_size=10000,
+                                                    batch_size=32, pre=8, suf=4, output_size=10000,
                                                     clean=True)):
                 preds_, acc_, top3_acc_, predictions_ = sess.run(
                     [preds, acc, top3_acc, predictions], feed_dict={x: b_x, y: b_y})
@@ -188,12 +261,20 @@ if __name__ == '__main__':
                 preds_indexes = preds_indexes + [[p, unk_index[i], preds__[i], b_y_[i]]
                                                  for i, p in enumerate(predictions_)]
 
+
+            # Build file
+            build_file(perc_unk, c, 'results/lstmpc10k8-4n15_{}c_{}u.txt'.format(int(c), perc_unk)
+                       , token_dict)
+
             # Compute sentence accuracies
             acc_sentence = {}
             w2v_dists = []
-
+            n_unknown = 0
             for i, u in enumerate(preds_indexes):
+                # token predicted, target token
                 t1, t2 = token_dict[preds_indexes[i][2]], token_dict[preds_indexes[i][3]]
+                if t2 == '<UNKNOWN>':
+                    n_unknown += 1.
                 dist = get_word_distance(t1, t2)
                 if dist is not None:
                     w2v_dists.append(dist)
@@ -210,20 +291,23 @@ if __name__ == '__main__':
                         acc_sentence[u[1][0]][0] += 1.
             sentence_acc = []
             perfect_sentence = 0
+
+            perc_unknown = n_unknown / len(preds_indexes)
+
             for i, a in enumerate(acc_sentence):
 
                 accuracy_sentence = acc_sentence[a][0] / acc_sentence[a][1]
                 sentence_acc.append(accuracy_sentence)
                 if accuracy_sentence == 1.:
                     perfect_sentence += 1.
-            print('Acc: {} - Top 3 Acc: {} - % Perfect Sentence Prediction %: {} '
-                  '- Word2Vec Distance: {}'
+            print('Acc: {} - Top 3 Acc: {} - % Perfect Sentence Prediction: {} '
+                  '- Word2Vec Distance: {} - % unknown: {}'
                   '- percentage truncated: {} - contiguous words: {} '.format(
                 np.mean(all_acc), np.mean(all_top3_acc), perfect_sentence / len(sentence_acc),
-                np.mean(w2v_dists), perc_unk, c))
+                np.mean(w2v_dists), perc_unknown, perc_unk, c))
             with open('results/lstmp10k5-3v1_results.txt', 'a') as f:
-                f.write('TEST: Acc: {} - Top 3 Acc: {} - % Perfect Sentence Prediction %: {} '
-                          '- Word2Vec Distance: {}'
-                          '- percentage truncated: {} - contiguous words: {} \n'.format(
+                f.write('Acc: {} - Top 3 Acc: {} - % Perfect Sentence Prediction: {} '
+                          '- Word2Vec Distance: {} - % unknown: {}'
+                          '- percentage truncated: {} - contiguous words: {} '.format(
                         np.mean(all_acc), np.mean(all_top3_acc), perfect_sentence / len(sentence_acc),
-                        np.mean(w2v_dists), perc_unk, c))
+                        np.mean(w2v_dists), perc_unknown, perc_unk, c))

@@ -1,4 +1,4 @@
-from lstm.lstm import DataReader
+from lstm_.lstm import DataReader
 import os, pickle, time
 
 data_path = '/home/ashbylepoc/tmp/nlp_dev_1'
